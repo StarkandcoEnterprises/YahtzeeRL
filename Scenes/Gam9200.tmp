@@ -69,6 +69,7 @@ layout_mode = 2
 
 [node name="FullHouse" parent="GridContainer" instance=ExtResource("4_p1sul")]
 layout_mode = 2
+number = 0
 
 [node name="Trick2" parent="GridContainer" instance=ExtResource("3_w7u8k")]
 layout_mode = 2
@@ -77,6 +78,7 @@ string_name = "Twos"
 
 [node name="ThreeOfAKind" parent="GridContainer" instance=ExtResource("5_ti6m1")]
 layout_mode = 2
+number = 0
 
 [node name="Trick3" parent="GridContainer" instance=ExtResource("3_w7u8k")]
 layout_mode = 2
@@ -85,6 +87,7 @@ string_name = "Threes"
 
 [node name="FourOfAKind" parent="GridContainer" instance=ExtResource("5_88m3j")]
 layout_mode = 2
+number = 0
 
 [node name="Trick4" parent="GridContainer" instance=ExtResource("3_w7u8k")]
 layout_mode = 2
@@ -93,6 +96,7 @@ string_name = "Fours"
 
 [node name="Chance" parent="GridContainer" instance=ExtResource("7_trnc1")]
 layout_mode = 2
+number = 0
 
 [node name="Trick5" parent="GridContainer" instance=ExtResource("3_w7u8k")]
 layout_mode = 2
@@ -101,6 +105,7 @@ string_name = "Fives"
 
 [node name="Yahtzee" parent="GridContainer" instance=ExtResource("5_wqtof")]
 layout_mode = 2
+number = 0
 
 [node name="Trick6" parent="GridContainer" instance=ExtResource("3_w7u8k")]
 layout_mode = 2
@@ -132,15 +137,4 @@ offset_bottom = 335.0
 theme_override_font_sizes/font_size = 64
 text = "Final Score: "
 
-[node name="NewGame" type="Button" parent="."]
-unique_name_in_owner = true
-visible = false
-offset_left = 743.0
-offset_top = 305.0
-offset_right = 919.0
-offset_bottom = 358.0
-theme_override_font_sizes/font_size = 32
-text = "New Game"
-
 [connection signal="pressed" from="Roll" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]

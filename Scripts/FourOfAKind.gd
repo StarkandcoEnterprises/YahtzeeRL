@@ -8,10 +8,10 @@ func trick_calculation() -> int:
 	var first_die
 	var first_die_count = 0
 	
-	var total = 0
+	var new_total = 0
 	
 	for die in dice:
-		total += die.value + 1
+		new_total += die.value + 1
 		#Set first and second dice
 		if !first_die:
 			first_die = die
@@ -20,6 +20,6 @@ func trick_calculation() -> int:
 			first_die_count += 1
 	
 	if first_die_count >= 4:
-		return total
+		return new_total
 	return 0
 

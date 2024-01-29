@@ -1,7 +1,8 @@
-VBoxContainer
 Button
-Window
 Label
+ColorRect
+VBoxContainer
+Window
 Sprite2D
 Panel
 HBoxContainer
@@ -11,5 +12,3 @@ GridMap
 AnimatedSprite2D
 Node2D
 CanvasLayer
-SubViewport
-SubViewportContainer
