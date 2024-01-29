@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://du4icow7bd821"]
+
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/PatternTrick.tscn" id="1_d42j7"]
+[ext_resource type="Script" path="res://Scripts/FourOfAKind.gd" id="2_fnswl"]
+
+[node name="FourOfAKind" instance=ExtResource("1_d42j7")]
+script = ExtResource("2_fnswl")
+string_name = "4 of a kind"
+
+[node name="Label" parent="." index="0"]
+text = "4 of a kind"

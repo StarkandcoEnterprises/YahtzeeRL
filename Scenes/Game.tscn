@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://byibymnmq0dka"]
+
+[ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Dice.tscn" id="1_0pu4c"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_0tbf3"]
+[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Trick.tscn" id="3_w7u8k"]
+[ext_resource type="PackedScene" uid="uid://tk4qypgem8ec" path="res://Scenes/FullHouse.tscn" id="4_p1sul"]
+[ext_resource type="PackedScene" uid="uid://du4icow7bd821" path="res://Scenes/FourOfAKind.tscn" id="5_88m3j"]
+[ext_resource type="PackedScene" uid="uid://peul4pny7b82" path="res://Scenes/ThreeOfAKind.tscn" id="5_ti6m1"]
+[ext_resource type="PackedScene" uid="uid://c3ohljw8413sf" path="res://Scenes/Yahtzee.tscn" id="5_wqtof"]
+[ext_resource type="PackedScene" uid="uid://m7nxjcugmp68" path="res://Scenes/Chance.tscn" id="7_trnc1"]
+
+[node name="Game" type="Node2D" groups=["Game"]]
+script = ExtResource("1_0tbf3")
+
+[node name="Roll" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 236.0
+offset_top = 211.0
+offset_right = 319.0
+offset_bottom = 242.0
+text = "Roll"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 90.0
+offset_top = 90.0
+offset_right = 154.0
+offset_bottom = 200.0
+theme_override_constants/separation = 15
+
+[node name="DiceSet" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="HBoxContainer/DiceSet" instance=ExtResource("1_0pu4c")]
+
+[node name="DiceSet2" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="HBoxContainer/DiceSet2" instance=ExtResource("1_0pu4c")]
+
+[node name="DiceSet3" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="HBoxContainer/DiceSet3" instance=ExtResource("1_0pu4c")]
+
+[node name="DiceSet4" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="HBoxContainer/DiceSet4" instance=ExtResource("1_0pu4c")]
+
+[node name="DiceSet5" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="HBoxContainer/DiceSet5" instance=ExtResource("1_0pu4c")]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 18.0
+offset_top = 281.0
+offset_right = 343.0
+offset_bottom = 646.0
+columns = 2
+
+[node name="Trick" parent="GridContainer" instance=ExtResource("3_w7u8k")]
+layout_mode = 2
+
+[node name="FullHouse" parent="GridContainer" instance=ExtResource("4_p1sul")]
+layout_mode = 2
+
+[node name="Trick2" parent="GridContainer" instance=ExtResource("3_w7u8k")]
+layout_mode = 2
+number = 1
+string_name = "Twos"
+
+[node name="ThreeOfAKind" parent="GridContainer" instance=ExtResource("5_ti6m1")]
+layout_mode = 2
+
+[node name="Trick3" parent="GridContainer" instance=ExtResource("3_w7u8k")]
+layout_mode = 2
+number = 2
+string_name = "Threes"
+
+[node name="FourOfAKind" parent="GridContainer" instance=ExtResource("5_88m3j")]
+layout_mode = 2
+
+[node name="Trick4" parent="GridContainer" instance=ExtResource("3_w7u8k")]
+layout_mode = 2
+number = 3
+string_name = "Fours"
+
+[node name="Chance" parent="GridContainer" instance=ExtResource("7_trnc1")]
+layout_mode = 2
+
+[node name="Trick5" parent="GridContainer" instance=ExtResource("3_w7u8k")]
+layout_mode = 2
+number = 4
+string_name = "Fives"
+
+[node name="Yahtzee" parent="GridContainer" instance=ExtResource("5_wqtof")]
+layout_mode = 2
+
+[node name="Trick6" parent="GridContainer" instance=ExtResource("3_w7u8k")]
+layout_mode = 2
+number = 5
+string_name = "Sixes"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 37.0
+offset_right = 118.0
+offset_bottom = 76.0
+text = "Rolls!"
+
+[node name="RollCount" type="Label" parent="Label"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 23.0
+text = "3"
+
+[connection signal="pressed" from="Roll" to="." method="_on_button_pressed"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmfsrary5f3qa"]
+
+[ext_resource type="Texture2D" uid="uid://cxrxv3jlomut6" path="res://Assets/Dice-1.png" id="1_tllad"]
+[ext_resource type="Script" path="res://Scripts/Dice.gd" id="2_i87cd"]
+
+[node name="Dice" type="Sprite2D"]
+texture = ExtResource("1_tllad")
+script = ExtResource("2_i87cd")

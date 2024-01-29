@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3ohljw8413sf"]
+
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/PatternTrick.tscn" id="1_i6mba"]
+[ext_resource type="Script" path="res://Scripts/Yahtzee.gd" id="2_koung"]
+
+[node name="Yahtzee" instance=ExtResource("1_i6mba")]
+script = ExtResource("2_koung")
+string_name = "Yahtzee"

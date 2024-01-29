@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dctl106ecm0df"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fmxw"]
+bg_color = Color(0.356863, 0.658824, 0.662745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.780392, 0.843137, 0.447059, 1)
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_2fmxw")

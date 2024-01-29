@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://peul4pny7b82"]
+
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/PatternTrick.tscn" id="1_7wmfd"]
+[ext_resource type="Script" path="res://Scripts/ThreeOfAKind.gd" id="2_ry3rc"]
+
+[node name="ThreeOfAKind" instance=ExtResource("1_7wmfd")]
+script = ExtResource("2_ry3rc")
+string_name = "3 of a kind"

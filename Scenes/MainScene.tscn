@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm0ydby5b6tro"]
+
+[ext_resource type="PackedScene" uid="uid://byibymnmq0dka" path="res://Scenes/Game.tscn" id="1_w7yhi"]
+[ext_resource type="Script" path="res://Scripts/DebugWindow.gd" id="2_edkyt"]
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 62.0
+offset_right = 781.0
+offset_bottom = 574.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_w7yhi")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DebugWindow" type="Window" parent="."]
+title = "Debug Window"
+position = Vector2i(30, 30)
+size = Vector2i(200, 200)
+script = ExtResource("2_edkyt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugWindow"]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 130.0
+offset_bottom = 72.0
+theme_override_constants/separation = 5
+
+[node name="Yahtzee" type="Button" parent="DebugWindow/VBoxContainer"]
+layout_mode = 2
+text = "Get Yahtzee!"
+
+[node name="FullHouse" type="Button" parent="DebugWindow/VBoxContainer"]
+layout_mode = 2
+text = "Get Full House!"
+
+[connection signal="pressed" from="DebugWindow/VBoxContainer/Yahtzee" to="DebugWindow" method="_on_yahtzee_pressed"]
+[connection signal="pressed" from="DebugWindow/VBoxContainer/FullHouse" to="DebugWindow" method="_on_full_house_pressed"]
