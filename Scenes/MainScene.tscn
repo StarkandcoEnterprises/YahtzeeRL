@@ -27,7 +27,7 @@ render_target_update_mode = 4
 
 [node name="DebugWindow" type="Window" parent="."]
 title = "Debug Window"
-position = Vector2i(30, 30)
+position = Vector2i(30, 36)
 size = Vector2i(200, 200)
 script = ExtResource("2_edkyt")
 
@@ -46,5 +46,10 @@ text = "Get Yahtzee!"
 layout_mode = 2
 text = "Get Full House!"
 
+[node name="UpgradeMenu" type="Button" parent="DebugWindow/VBoxContainer"]
+layout_mode = 2
+text = "Open Upgrade Menu"
+
 [connection signal="pressed" from="DebugWindow/VBoxContainer/Yahtzee" to="DebugWindow" method="_on_yahtzee_pressed"]
 [connection signal="pressed" from="DebugWindow/VBoxContainer/FullHouse" to="DebugWindow" method="_on_full_house_pressed"]
+[connection signal="pressed" from="DebugWindow/VBoxContainer/UpgradeMenu" to="DebugWindow" method="_on_upgrade_menu_pressed"]

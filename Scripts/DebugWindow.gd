@@ -7,7 +7,7 @@ func _on_yahtzee_pressed():
 	for die: Dice in get_tree().get_nodes_in_group("Dice"):
 		die.value = new_val
 		die.texture = die.textures[new_val]
-	game.calculate_totals()
+	game.get_node("KeyGameScene").calculate_totals()
 
 
 func _on_full_house_pressed():
@@ -28,5 +28,7 @@ func _on_full_house_pressed():
 			die.value = second_new_val
 			die.texture = die.textures[second_new_val]
 	
-	game.calculate_totals()
+	game.get_node("KeyGameScene").calculate_totals()
 	
+func _on_upgrade_menu_pressed():
+	game.get_node("%UpgradePanel").visible = true

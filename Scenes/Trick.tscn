@@ -4,6 +4,8 @@
 
 [node name="BaseTrick" type="HBoxContainer" groups=["Trick"]]
 custom_minimum_size = Vector2(80, 0)
+offset_right = 213.0
+offset_bottom = 31.0
 theme_override_constants/separation = 15
 script = ExtResource("1_itgyq")
 

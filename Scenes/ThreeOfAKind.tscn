@@ -6,3 +6,6 @@
 [node name="ThreeOfAKind" instance=ExtResource("1_7wmfd")]
 script = ExtResource("2_ry3rc")
 string_name = "3 of a kind"
+
+[node name="Label" parent="." index="0"]
+text = "3 of a kind"

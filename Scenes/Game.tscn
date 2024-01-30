@@ -1,146 +1,68 @@
-[gd_scene load_steps=9 format=3 uid="uid://byibymnmq0dka"]
+[gd_scene load_steps=6 format=3 uid="uid://byibymnmq0dka"]
 
-[ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Dice.tscn" id="1_0pu4c"]
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="1_0tbf3"]
-[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Trick.tscn" id="3_w7u8k"]
-[ext_resource type="PackedScene" uid="uid://tk4qypgem8ec" path="res://Scenes/FullHouse.tscn" id="4_p1sul"]
-[ext_resource type="PackedScene" uid="uid://du4icow7bd821" path="res://Scenes/FourOfAKind.tscn" id="5_88m3j"]
-[ext_resource type="PackedScene" uid="uid://peul4pny7b82" path="res://Scenes/ThreeOfAKind.tscn" id="5_ti6m1"]
-[ext_resource type="PackedScene" uid="uid://c3ohljw8413sf" path="res://Scenes/Yahtzee.tscn" id="5_wqtof"]
-[ext_resource type="PackedScene" uid="uid://m7nxjcugmp68" path="res://Scenes/Chance.tscn" id="7_trnc1"]
+[ext_resource type="PackedScene" uid="uid://bnt5srpmcorsp" path="res://Scenes/KeyGameScene.tscn" id="2_rollb"]
+[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/UpgradeOption.tscn" id="3_ejn68"]
+[ext_resource type="Theme" uid="uid://dctl106ecm0df" path="res://Assets/UI_Theme.tres" id="3_uepxn"]
+[ext_resource type="PackedScene" uid="uid://qqakeot6td5s" path="res://Scenes/Change1to7.tscn" id="5_sog7y"]
 
 [node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_0tbf3")
 
-[node name="Roll" type="Button" parent="."]
-unique_name_in_owner = true
-offset_left = 236.0
-offset_top = 211.0
-offset_right = 319.0
-offset_bottom = 242.0
-text = "Roll"
+[node name="KeyGameScene" parent="." instance=ExtResource("2_rollb")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 90.0
-offset_top = 90.0
-offset_right = 154.0
-offset_bottom = 200.0
-theme_override_constants/separation = 15
-
-[node name="DiceSet" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="HBoxContainer/DiceSet" instance=ExtResource("1_0pu4c")]
-
-[node name="DiceSet2" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="HBoxContainer/DiceSet2" instance=ExtResource("1_0pu4c")]
-
-[node name="DiceSet3" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="HBoxContainer/DiceSet3" instance=ExtResource("1_0pu4c")]
-
-[node name="DiceSet4" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="HBoxContainer/DiceSet4" instance=ExtResource("1_0pu4c")]
-
-[node name="DiceSet5" type="Control" parent="HBoxContainer"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="HBoxContainer/DiceSet5" instance=ExtResource("1_0pu4c")]
-
-[node name="GridContainer" type="GridContainer" parent="."]
-offset_left = 18.0
-offset_top = 281.0
-offset_right = 343.0
-offset_bottom = 646.0
-columns = 2
-
-[node name="Trick" parent="GridContainer" instance=ExtResource("3_w7u8k")]
-layout_mode = 2
-
-[node name="FullHouse" parent="GridContainer" instance=ExtResource("4_p1sul")]
-layout_mode = 2
-
-[node name="Trick2" parent="GridContainer" instance=ExtResource("3_w7u8k")]
-layout_mode = 2
-number = 1
-string_name = "Twos"
-
-[node name="ThreeOfAKind" parent="GridContainer" instance=ExtResource("5_ti6m1")]
-layout_mode = 2
-
-[node name="Trick3" parent="GridContainer" instance=ExtResource("3_w7u8k")]
-layout_mode = 2
-number = 2
-string_name = "Threes"
-
-[node name="FourOfAKind" parent="GridContainer" instance=ExtResource("5_88m3j")]
-layout_mode = 2
-
-[node name="Trick4" parent="GridContainer" instance=ExtResource("3_w7u8k")]
-layout_mode = 2
-number = 3
-string_name = "Fours"
-
-[node name="Chance" parent="GridContainer" instance=ExtResource("7_trnc1")]
-layout_mode = 2
-
-[node name="Trick5" parent="GridContainer" instance=ExtResource("3_w7u8k")]
-layout_mode = 2
-number = 4
-string_name = "Fives"
-
-[node name="Yahtzee" parent="GridContainer" instance=ExtResource("5_wqtof")]
-layout_mode = 2
-
-[node name="Trick6" parent="GridContainer" instance=ExtResource("3_w7u8k")]
-layout_mode = 2
-number = 5
-string_name = "Sixes"
-
-[node name="Label" type="Label" parent="."]
-offset_left = 34.0
-offset_top = 37.0
-offset_right = 118.0
-offset_bottom = 76.0
-text = "Rolls!"
-
-[node name="RollCount" type="Label" parent="Label"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 48.0
-offset_right = 88.0
-offset_bottom = 23.0
-text = "3"
-
-[node name="FinalScore" type="Label" parent="."]
+[node name="EndGamePanel" type="Panel" parent="."]
 unique_name_in_owner = true
 visible = false
-offset_left = 600.0
-offset_top = 205.0
-offset_right = 1103.0
-offset_bottom = 335.0
+offset_left = 292.0
+offset_top = 36.0
+offset_right = 789.0
+offset_bottom = 635.0
+
+[node name="FinalScore" type="Label" parent="EndGamePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 20.0
+offset_top = 137.0
+offset_right = 523.0
+offset_bottom = 267.0
 theme_override_font_sizes/font_size = 64
 text = "Final Score: "
 
-[node name="NewGame" type="Button" parent="."]
+[node name="NewGame" type="Button" parent="EndGamePanel"]
 unique_name_in_owner = true
-visible = false
-offset_left = 743.0
-offset_top = 305.0
-offset_right = 919.0
-offset_bottom = 358.0
+layout_mode = 0
+offset_left = 149.0
+offset_top = 245.0
+offset_right = 325.0
+offset_bottom = 298.0
 theme_override_font_sizes/font_size = 32
 text = "New Game"
 
-[connection signal="pressed" from="Roll" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="NewGame" to="." method="_on_new_game_pressed"]
+[node name="UpgradePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 59.0
+offset_top = 142.0
+offset_right = 1016.0
+offset_bottom = 542.0
+theme = ExtResource("3_uepxn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 43.0
+offset_right = 890.0
+offset_bottom = 363.0
+theme_override_constants/separation = 190
+
+[node name="UpgradeOption" parent="UpgradePanel/HBoxContainer" instance=ExtResource("3_ejn68")]
+layout_mode = 2
+
+[node name="Change1to7" parent="UpgradePanel/HBoxContainer" instance=ExtResource("5_sog7y")]
+layout_mode = 2
+
+[node name="UpgradeOption3" parent="UpgradePanel/HBoxContainer" instance=ExtResource("3_ejn68")]
+layout_mode = 2
+
+[connection signal="pressed" from="EndGamePanel/NewGame" to="." method="_on_new_game_pressed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyrpp4sb1l8vu"]
+
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/PatternTrick.tscn" id="1_g5t0k"]
+[ext_resource type="Script" path="res://Scripts/LargeStraight.gd" id="2_d4wgb"]
+
+[node name="LargeStraight" instance=ExtResource("1_g5t0k")]
+script = ExtResource("2_d4wgb")
+string_name = "Lg Straight"
+
+[node name="Label" parent="." index="0"]
+text = "Lg Straight"

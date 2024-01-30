@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://828sdwgwf044"]
+
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/PatternTrick.tscn" id="1_lm14c"]
+[ext_resource type="Script" path="res://Scripts/SmallStraight.gd" id="2_gj6sl"]
+
+[node name="SmallStraight" instance=ExtResource("1_lm14c")]
+offset_right = 0.0
+offset_bottom = 0.0
+script = ExtResource("2_gj6sl")
+string_name = "Sm Straight"
+
+[node name="Label" parent="." index="0"]
+text = "Sm Straight"

@@ -6,3 +6,6 @@
 [node name="Yahtzee" instance=ExtResource("1_i6mba")]
 script = ExtResource("2_koung")
 string_name = "Yahtzee"
+
+[node name="Label" parent="." index="0"]
+text = "Yahtzee"
