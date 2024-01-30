@@ -18,6 +18,7 @@ func _process(_delta):
 	%Label.text = string_name
 
 func calculate():
+	if accepted: return
 	total = 0
 	for die in get_tree().get_nodes_in_group("Dice"):
 		if die.value == number:

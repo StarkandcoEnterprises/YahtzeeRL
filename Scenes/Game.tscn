@@ -22,9 +22,9 @@ offset_bottom = 635.0
 [node name="FinalScore" type="Label" parent="EndGamePanel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 20.0
+offset_left = 2.0
 offset_top = 137.0
-offset_right = 523.0
+offset_right = 505.0
 offset_bottom = 267.0
 theme_override_font_sizes/font_size = 64
 text = "Final Score: "

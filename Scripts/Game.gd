@@ -26,6 +26,9 @@ func reset_tricks():
 	for trick in get_tree().get_nodes_in_group("Trick"):
 		trick.accepted = false
 		trick.get_node("%Button").disabled = false
+		if trick is Yahtzee:
+			trick.yahtzee = false
+			trick.complete = false
 
 func _on_new_game_pressed():
 	%EndGamePanel.visible = false

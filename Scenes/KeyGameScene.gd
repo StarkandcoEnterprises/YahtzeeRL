@@ -28,7 +28,6 @@ func roll():
 
 func calculate_totals():
 	for trick in get_tree().get_nodes_in_group("Trick"):
-		if trick.accepted: continue
 		trick.calculate()
 
 func reset_rolls():
