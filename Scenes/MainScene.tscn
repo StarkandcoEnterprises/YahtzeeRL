@@ -26,6 +26,7 @@ render_target_update_mode = 4
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="DebugWindow" type="Window" parent="."]
+gui_embed_subwindows = true
 title = "Debug Window"
 position = Vector2i(30, 36)
 size = Vector2i(200, 200)
