@@ -31,7 +31,7 @@ func determine_yahtzee():
 
 func trick_calculation():
 	if determine_yahtzee():
-		if total == 0:
+		if total == 0 or !yahtzee:
 			return 50
 		elif yahtzee:
 			return 150
@@ -52,6 +52,8 @@ func _on_button_pressed():
 		accepted = true
 		%Button.disabled = true
 
+	game.get_node("KeyGameScene").calculate_score()
+	
 	if game.continue_game():
 		game.get_node("KeyGameScene").reset_rolls()
 	else:

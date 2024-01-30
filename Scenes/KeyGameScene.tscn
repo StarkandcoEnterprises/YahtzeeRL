@@ -59,17 +59,33 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Roll"
 
-[node name="Label" type="Label" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "Rolls!"
 
-[node name="RollCount" type="Label" parent="Label"]
+[node name="RollCount" type="Label" parent="HBoxContainer2/Label"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 48.0
 offset_right = 88.0
 offset_bottom = 23.0
 text = "3"
+
+[node name="Label2" type="Label" parent="HBoxContainer2"]
+layout_mode = 2
+text = "Score:"
+
+[node name="Score" type="Label" parent="HBoxContainer2/Label2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 23.0
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 2

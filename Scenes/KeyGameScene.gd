@@ -3,11 +3,22 @@ extends VBoxContainer
 var no_of_rolls: int = 2
 var current_rolls: int = 2
 
+var score = 0
+var minimum = 150
+
+
 func _ready():
 	roll_and_total()
 
 func _process(_delta):
 	%RollCount.text = str(current_rolls)
+	%Score.text = str(score) + " / " + str(minimum)
+
+func calculate_score():
+	score = 0
+	for trick in get_tree().get_nodes_in_group("Trick"):
+		if trick.accepted:
+			score += trick.total
 
 func _on_roll_pressed():
 	roll_and_total()

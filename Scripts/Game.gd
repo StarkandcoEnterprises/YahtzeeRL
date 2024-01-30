@@ -1,5 +1,7 @@
 extends Node2D
 
+var games_complete = 1
+
 func continue_game():
 	for trick in get_tree().get_nodes_in_group("Trick"):
 		if !trick.accepted: return true
@@ -13,8 +15,17 @@ func game_over():
 	
 	var score = calculate_final_score()
 	
-	%FinalScore.text = "Final Score: " + str(score)
-	%EndGamePanel.visible = true
+	if score <= $KeyGameScene.minimum:
+		%FinalScore.text = "Final Score: " + str(score)
+		%EndGamePanel.visible = true
+		games_complete = 1
+		$KeyGameScene.minimum = 150
+	else:
+		$KeyGameScene.score = 0
+		$KeyGameScene.minimum += 50 * games_complete
+		%UpgradePanel.visible = true
+		_on_new_game_pressed()
+		games_complete += 1
 
 func calculate_final_score() -> int:
 	var final_score = 0
@@ -33,6 +44,7 @@ func reset_tricks():
 func _on_new_game_pressed():
 	%EndGamePanel.visible = false
 	reset_tricks()
+	$KeyGameScene.score = 0
 	$KeyGameScene.reset_rolls()
 	toggle_dice_roll_buttons()
 

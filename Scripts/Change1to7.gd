@@ -14,5 +14,6 @@ func change_tricks():
 
 func change_dice():
 	for die in get_tree().get_nodes_in_group("Dice"):
-		die.possible_values.insert(die.possible_values.find(0), 6)
-		die.possible_values.remove_at(die.possible_values.find(0))
+		if die.possible_values.find(0) != -1:
+			die.possible_values.insert(die.possible_values.find(0), 6)
+			die.possible_values.remove_at(die.possible_values.find(0))

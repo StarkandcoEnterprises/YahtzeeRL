@@ -28,6 +28,9 @@ func calculate():
 func _on_button_pressed():
 	accepted = true
 	%Button.disabled = true
+	
+	game.get_node("KeyGameScene").calculate_score()
+	
 	if game.continue_game():
 		game.get_node("KeyGameScene").reset_rolls()
 	else:
