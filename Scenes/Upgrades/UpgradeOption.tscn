@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkfyo3r8lx85o"]
 
-[ext_resource type="Script" path="res://Scenes/UpgradeOption.gd" id="1_6o3e7"]
-[ext_resource type="Texture2D" uid="uid://ctsr3ivs8d2h" path="res://Assets/Dice-Base.png" id="1_83g7f"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/UpgradeOption.gd" id="1_i51au"]
+[ext_resource type="Texture2D" uid="uid://ctsr3ivs8d2h" path="res://Assets/Dice-Base.png" id="2_0kcp7"]
 
 [node name="UpgradeOption" type="VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 theme_override_constants/separation = 30
-script = ExtResource("1_6o3e7")
+script = ExtResource("1_i51au")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(100, 64)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-texture = ExtResource("1_83g7f")
+texture = ExtResource("2_0kcp7")
 centered = false
 offset = Vector2(45, 0)
 
@@ -22,7 +22,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Upgrade text goes here!"
 horizontal_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://828sdwgwf044"]
 
-[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/PatternTrick.tscn" id="1_lm14c"]
-[ext_resource type="Script" path="res://Scripts/SmallStraight.gd" id="2_gj6sl"]
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Tricks/PatternTrick.tscn" id="1_lm14c"]
+[ext_resource type="Script" path="res://Scripts/Tricks/SmallStraight.gd" id="2_gj6sl"]
 
 [node name="SmallStraight" instance=ExtResource("1_lm14c")]
 offset_right = 0.0

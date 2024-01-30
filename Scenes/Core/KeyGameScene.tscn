@@ -1,0 +1,147 @@
+[gd_scene load_steps=11 format=3 uid="uid://bnt5srpmcorsp"]
+
+[ext_resource type="Script" path="res://Scripts/Core/KeyGameScene.gd" id="1_q24a5"]
+[ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Core/Dice.tscn" id="1_rb7kb"]
+[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Tricks/Trick.tscn" id="3_gegk0"]
+[ext_resource type="PackedScene" uid="uid://peul4pny7b82" path="res://Scenes/Tricks/ThreeOfAKind.tscn" id="4_o2eyt"]
+[ext_resource type="PackedScene" uid="uid://du4icow7bd821" path="res://Scenes/Tricks/FourOfAKind.tscn" id="5_4leqs"]
+[ext_resource type="PackedScene" uid="uid://tk4qypgem8ec" path="res://Scenes/Tricks/FullHouse.tscn" id="6_fgw2r"]
+[ext_resource type="PackedScene" uid="uid://828sdwgwf044" path="res://Scenes/Tricks/SmallStraight.tscn" id="7_72nrs"]
+[ext_resource type="PackedScene" uid="uid://cyrpp4sb1l8vu" path="res://Scenes/Tricks/LargeStraight.tscn" id="8_b4qix"]
+[ext_resource type="PackedScene" uid="uid://m7nxjcugmp68" path="res://Scenes/Tricks/Chance.tscn" id="9_cpe8r"]
+[ext_resource type="PackedScene" uid="uid://c3ohljw8413sf" path="res://Scenes/Tricks/Yahtzee.tscn" id="10_mijn3"]
+
+[node name="KeyGameScene" type="VBoxContainer"]
+offset_left = 316.0
+offset_top = 66.0
+offset_right = 758.0
+offset_bottom = 548.0
+theme_override_constants/separation = 50
+script = ExtResource("1_q24a5")
+
+[node name="Dice" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="DiceSet" type="Control" parent="Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="Dice/DiceSet" instance=ExtResource("1_rb7kb")]
+
+[node name="DiceSet2" type="Control" parent="Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="Dice/DiceSet2" instance=ExtResource("1_rb7kb")]
+
+[node name="DiceSet3" type="Control" parent="Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="Dice/DiceSet3" instance=ExtResource("1_rb7kb")]
+
+[node name="DiceSet4" type="Control" parent="Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="Dice/DiceSet4" instance=ExtResource("1_rb7kb")]
+
+[node name="DiceSet5" type="Control" parent="Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="Dice/DiceSet5" instance=ExtResource("1_rb7kb")]
+
+[node name="Roll" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Roll"
+
+[node name="Data" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Label" type="Label" parent="Data"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Rolls!"
+
+[node name="RollCount" type="Label" parent="Data/Label"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 23.0
+text = "3"
+
+[node name="Label2" type="Label" parent="Data"]
+layout_mode = 2
+text = "Score:"
+
+[node name="Score" type="Label" parent="Data/Label2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 23.0
+
+[node name="Tricks" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 2
+
+[node name="Trick" parent="Tricks" instance=ExtResource("3_gegk0")]
+layout_mode = 2
+
+[node name="ThreeOfAKind" parent="Tricks" instance=ExtResource("4_o2eyt")]
+layout_mode = 2
+
+[node name="Trick2" parent="Tricks" instance=ExtResource("3_gegk0")]
+layout_mode = 2
+number = 1
+string_name = "Twos"
+
+[node name="FourOfAKind" parent="Tricks" instance=ExtResource("5_4leqs")]
+layout_mode = 2
+
+[node name="Trick3" parent="Tricks" instance=ExtResource("3_gegk0")]
+layout_mode = 2
+number = 2
+string_name = "Threes"
+
+[node name="FullHouse" parent="Tricks" instance=ExtResource("6_fgw2r")]
+layout_mode = 2
+
+[node name="Trick4" parent="Tricks" instance=ExtResource("3_gegk0")]
+layout_mode = 2
+number = 3
+string_name = "Fours"
+
+[node name="SmallStraight" parent="Tricks" instance=ExtResource("7_72nrs")]
+layout_mode = 2
+
+[node name="Trick5" parent="Tricks" instance=ExtResource("3_gegk0")]
+layout_mode = 2
+number = 4
+string_name = "Fives"
+
+[node name="LargeStraight" parent="Tricks" instance=ExtResource("8_b4qix")]
+layout_mode = 2
+
+[node name="Trick6" parent="Tricks" instance=ExtResource("3_gegk0")]
+layout_mode = 2
+number = 5
+string_name = "Sixes"
+
+[node name="Chance" parent="Tricks" instance=ExtResource("9_cpe8r")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Tricks"]
+layout_mode = 2
+
+[node name="Yahtzee" parent="Tricks" instance=ExtResource("10_mijn3")]
+layout_mode = 2
+
+[connection signal="pressed" from="Roll" to="." method="_on_roll_pressed"]

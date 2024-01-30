@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://byibymnmq0dka"]
+[gd_scene load_steps=5 format=3 uid="uid://byibymnmq0dka"]
 
-[ext_resource type="Script" path="res://Scripts/Game.gd" id="1_0tbf3"]
-[ext_resource type="PackedScene" uid="uid://bnt5srpmcorsp" path="res://Scenes/KeyGameScene.tscn" id="2_rollb"]
-[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/UpgradeOption.tscn" id="3_ejn68"]
+[ext_resource type="Script" path="res://Scripts/Core/Game.gd" id="1_0tbf3"]
+[ext_resource type="PackedScene" uid="uid://bnt5srpmcorsp" path="res://Scenes/Core/KeyGameScene.tscn" id="2_rollb"]
 [ext_resource type="Theme" uid="uid://dctl106ecm0df" path="res://Assets/UI_Theme.tres" id="3_uepxn"]
-[ext_resource type="PackedScene" uid="uid://qqakeot6td5s" path="res://Scenes/Change1to7.tscn" id="5_sog7y"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/UpgradesContainer.gd" id="4_rg1yg"]
 
 [node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_0tbf3")
@@ -48,21 +47,14 @@ offset_right = 1016.0
 offset_bottom = 542.0
 theme = ExtResource("3_uepxn")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UpgradePanel"]
+[node name="UpgradesContainer" type="HBoxContainer" parent="UpgradePanel"]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 43.0
 offset_right = 890.0
 offset_bottom = 363.0
 theme_override_constants/separation = 190
-
-[node name="UpgradeOption" parent="UpgradePanel/HBoxContainer" instance=ExtResource("3_ejn68")]
-layout_mode = 2
-
-[node name="Change1to7" parent="UpgradePanel/HBoxContainer" instance=ExtResource("5_sog7y")]
-layout_mode = 2
-
-[node name="UpgradeOption3" parent="UpgradePanel/HBoxContainer" instance=ExtResource("3_ejn68")]
-layout_mode = 2
+alignment = 1
+script = ExtResource("4_rg1yg")
 
 [connection signal="pressed" from="EndGamePanel/NewGame" to="." method="_on_new_game_pressed"]

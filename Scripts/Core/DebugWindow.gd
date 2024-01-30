@@ -36,3 +36,13 @@ func _on_full_house_pressed():
 	
 func _on_upgrade_menu_pressed():
 	game.get_node("%UpgradePanel").visible = true
+	
+	var number_of_upgrades = 3
+	
+	if !game.upgrades:
+		game.upgrades = game.all_upgrades
+	
+	if game.upgrades.size() < 3: number_of_upgrades = game.upgrades.size()
+	
+	for x in number_of_upgrades:
+		game.get_node("%UpgradePanel").get_child(0).add_child(game.upgrades.pop_at(randi_range(0, game.upgrades.size() - 1)))

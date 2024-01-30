@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://tk4qypgem8ec"]
+
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Tricks/PatternTrick.tscn" id="1_5u4kg"]
+[ext_resource type="Script" path="res://Scripts/Tricks/FullHouse.gd" id="2_4hq6u"]
+
+[node name="FullHouse" instance=ExtResource("1_5u4kg")]
+script = ExtResource("2_4hq6u")
+string_name = "Full House"

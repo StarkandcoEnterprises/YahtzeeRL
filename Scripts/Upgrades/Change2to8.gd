@@ -1,5 +1,7 @@
 extends UpgradeOption
 
+class_name ChangeTwoToEight
+
 func _on_button_pressed():
 	super()
 	change_tricks()
@@ -8,12 +10,12 @@ func _on_button_pressed():
 
 func change_tricks():
 	for trick in get_tree().get_nodes_in_group("Trick"):
-		if trick.string_name == "Ones":
-			trick.number = 6
-			trick.string_name = "Sevens"
+		if trick.string_name == "Twos":
+			trick.number = 7
+			trick.string_name = "Eights"
 
 func change_dice():
 	for die in get_tree().get_nodes_in_group("Dice"):
-		if die.possible_values.find(0) != -1:
-			die.possible_values.insert(die.possible_values.find(0), 6)
-			die.possible_values.remove_at(die.possible_values.find(0))
+		if die.possible_values.find(1) != -1:
+			die.possible_values.insert(die.possible_values.find(1), 7)
+			die.possible_values.remove_at(die.possible_values.find(1))

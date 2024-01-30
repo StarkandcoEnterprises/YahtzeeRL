@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bm0ydby5b6tro"]
 
-[ext_resource type="PackedScene" uid="uid://byibymnmq0dka" path="res://Scenes/Game.tscn" id="1_w7yhi"]
-[ext_resource type="Script" path="res://Scripts/DebugWindow.gd" id="2_edkyt"]
+[ext_resource type="PackedScene" uid="uid://byibymnmq0dka" path="res://Scenes/Core/Game.tscn" id="1_w7yhi"]
+[ext_resource type="Script" path="res://Scripts/Core/DebugWindow.gd" id="2_edkyt"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dimx2garvmpht"]
 
-[ext_resource type="Script" path="res://Scripts/Trick.gd" id="1_itgyq"]
+[ext_resource type="Script" path="res://Scripts/Tricks/Trick.gd" id="1_itgyq"]
 
 [node name="BaseTrick" type="HBoxContainer" groups=["Trick"]]
 custom_minimum_size = Vector2(80, 0)

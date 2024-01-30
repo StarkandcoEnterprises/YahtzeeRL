@@ -2,6 +2,10 @@ extends Node2D
 
 var games_complete = 1
 
+var all_upgrades = [preload("res://Scenes/Upgrades/Change1to7.tscn").instantiate(), \
+preload("res://Scenes/Upgrades/Change2to8.tscn").instantiate(), preload("res://Scenes/Upgrades/Change3to9.tscn").instantiate()]
+var upgrades: Array
+
 func continue_game():
 	for trick in get_tree().get_nodes_in_group("Trick"):
 		if !trick.accepted: return true
@@ -10,7 +14,6 @@ func continue_game():
 func game_over():
 	$KeyGameScene.current_rolls = 0
 	toggle_dice_roll_buttons()
-	
 	$KeyGameScene.toggle_roll()
 	
 	var score = calculate_final_score()
@@ -23,6 +26,17 @@ func game_over():
 	else:
 		$KeyGameScene.score = 0
 		$KeyGameScene.minimum += 50 * games_complete
+		
+		var number_of_upgrades = 3
+		
+		if !upgrades:
+			upgrades = all_upgrades.duplicate()
+		
+		if upgrades.size() < 3: number_of_upgrades = upgrades.size()
+		
+		for x in number_of_upgrades:
+			%UpgradePanel.get_child(0).add_child(upgrades.pop_at(randi_range(0, upgrades.size() - 1)))
+		
 		%UpgradePanel.visible = true
 		_on_new_game_pressed()
 		games_complete += 1

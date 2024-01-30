@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="YahtzeeRL"
-run/main_scene="res://Scenes/MainScene.tscn"
+run/main_scene="res://Scenes/Core/MainScene.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://Assets/icon.svg"
 
 [display]
 
 window/size/mode=3
-window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
 
 [rendering]

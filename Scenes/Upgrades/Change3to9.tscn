@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj0e3p7gmjhu3"]
+
+[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Upgrades/UpgradeOption.tscn" id="1_2qh5x"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/Change3To9.gd" id="2_37e2n"]
+[ext_resource type="Texture2D" uid="uid://bjibma77kmb4b" path="res://Assets/Dice-9.png" id="3_bglhh"]
+
+[node name="Change3To9" instance=ExtResource("1_2qh5x")]
+script = ExtResource("2_37e2n")
+
+[node name="Sprite2D" parent="Control" index="0"]
+texture = ExtResource("3_bglhh")
+
+[node name="Label" parent="." index="1"]
+text = "Change threes (both dice and tricks) to nines"
