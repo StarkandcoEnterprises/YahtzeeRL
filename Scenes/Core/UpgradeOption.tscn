@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkfyo3r8lx85o"]
 
-[ext_resource type="Script" path="res://Scripts/Upgrades/UpgradeOption.gd" id="1_i51au"]
-[ext_resource type="Texture2D" uid="uid://ctsr3ivs8d2h" path="res://Assets/Dice-Base.png" id="2_0kcp7"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/UpgradeOption.gd" id="1_s4w6i"]
+[ext_resource type="Texture2D" uid="uid://ctsr3ivs8d2h" path="res://Assets/Dice-Base.png" id="2_r8sa6"]
 
 [node name="UpgradeOption" type="VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 theme_override_constants/separation = 30
-script = ExtResource("1_i51au")
+script = ExtResource("1_s4w6i")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(100, 64)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
-texture = ExtResource("2_0kcp7")
+texture = ExtResource("2_r8sa6")
 centered = false
 offset = Vector2(45, 0)
 

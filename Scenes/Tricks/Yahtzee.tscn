@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3ohljw8413sf"]
 
-[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Tricks/PatternTrick.tscn" id="1_i6mba"]
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Core/PatternTrick.tscn" id="1_i6mba"]
 [ext_resource type="Script" path="res://Scripts/Tricks/Yahtzee.gd" id="2_koung"]
 
 [node name="Yahtzee" instance=ExtResource("1_i6mba")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyrpp4sb1l8vu"]
 
-[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Tricks/PatternTrick.tscn" id="1_g5t0k"]
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Core/PatternTrick.tscn" id="1_g5t0k"]
 [ext_resource type="Script" path="res://Scripts/Tricks/LargeStraight.gd" id="2_d4wgb"]
 
 [node name="LargeStraight" instance=ExtResource("1_g5t0k")]

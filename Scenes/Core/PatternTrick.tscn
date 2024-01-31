@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duxlllwxhcd5a"]
 
-[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Tricks/Trick.tscn" id="1_a355c"]
+[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Core/Trick.tscn" id="1_a355c"]
 [ext_resource type="Script" path="res://Scripts/Tricks/PatternTrick.gd" id="2_bbmix"]
 
 [node name="PatternTrick" instance=ExtResource("1_a355c")]

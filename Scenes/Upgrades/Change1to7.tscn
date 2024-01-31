@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://qqakeot6td5s"]
 
-[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Upgrades/UpgradeOption.tscn" id="1_8lbva"]
+[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_ykfp1"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/Change1to7.gd" id="2_l7e1o"]
 [ext_resource type="Texture2D" uid="uid://b5ujlelddsm74" path="res://Assets/Dice-7.png" id="3_wbb8u"]
 
-[node name="Change1to7" instance=ExtResource("1_8lbva")]
+[node name="Change1to7" instance=ExtResource("1_ykfp1")]
 script = ExtResource("2_l7e1o")
 
 [node name="Sprite2D" parent="Control" index="0"]

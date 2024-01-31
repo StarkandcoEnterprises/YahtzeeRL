@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Core/KeyGameScene.gd" id="1_q24a5"]
 [ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Core/Dice.tscn" id="1_rb7kb"]
-[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Tricks/Trick.tscn" id="3_gegk0"]
+[ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Core/Trick.tscn" id="3_i1eqn"]
 [ext_resource type="PackedScene" uid="uid://peul4pny7b82" path="res://Scenes/Tricks/ThreeOfAKind.tscn" id="4_o2eyt"]
 [ext_resource type="PackedScene" uid="uid://du4icow7bd821" path="res://Scenes/Tricks/FourOfAKind.tscn" id="5_4leqs"]
 [ext_resource type="PackedScene" uid="uid://tk4qypgem8ec" path="res://Scenes/Tricks/FullHouse.tscn" id="6_fgw2r"]
@@ -92,13 +92,13 @@ layout_mode = 2
 theme_override_constants/h_separation = 40
 columns = 2
 
-[node name="Trick" parent="Tricks" instance=ExtResource("3_gegk0")]
+[node name="Trick" parent="Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 
 [node name="ThreeOfAKind" parent="Tricks" instance=ExtResource("4_o2eyt")]
 layout_mode = 2
 
-[node name="Trick2" parent="Tricks" instance=ExtResource("3_gegk0")]
+[node name="Trick2" parent="Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 1
 string_name = "Twos"
@@ -106,7 +106,7 @@ string_name = "Twos"
 [node name="FourOfAKind" parent="Tricks" instance=ExtResource("5_4leqs")]
 layout_mode = 2
 
-[node name="Trick3" parent="Tricks" instance=ExtResource("3_gegk0")]
+[node name="Trick3" parent="Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 2
 string_name = "Threes"
@@ -114,7 +114,7 @@ string_name = "Threes"
 [node name="FullHouse" parent="Tricks" instance=ExtResource("6_fgw2r")]
 layout_mode = 2
 
-[node name="Trick4" parent="Tricks" instance=ExtResource("3_gegk0")]
+[node name="Trick4" parent="Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 3
 string_name = "Fours"
@@ -122,7 +122,7 @@ string_name = "Fours"
 [node name="SmallStraight" parent="Tricks" instance=ExtResource("7_72nrs")]
 layout_mode = 2
 
-[node name="Trick5" parent="Tricks" instance=ExtResource("3_gegk0")]
+[node name="Trick5" parent="Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 4
 string_name = "Fives"
@@ -130,7 +130,7 @@ string_name = "Fives"
 [node name="LargeStraight" parent="Tricks" instance=ExtResource("8_b4qix")]
 layout_mode = 2
 
-[node name="Trick6" parent="Tricks" instance=ExtResource("3_gegk0")]
+[node name="Trick6" parent="Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 5
 string_name = "Sixes"

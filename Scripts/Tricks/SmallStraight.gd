@@ -2,20 +2,30 @@ extends PatternTrick
 
 class_name SmallStraight
 
+
+##TODO: FIX THIS
 func trick_calculation() -> int:
 	var dice = get_tree().get_nodes_in_group("Dice")
 	
 	dice.sort_custom(_compare_dice)
 
-	var consecutive_count = 0
+	for x in range(len(dice)):
+			
+		var consecutive_count = 0
+		var last_value = dice[x].value
 
-	for i in range(len(dice) - 1):
-		if dice[i].value + 1 == dice[i + 1].value:
-			consecutive_count += 1
-			if consecutive_count == 3:
-				return 30
-		else:
-			consecutive_count = 0
+		for y in range(x + 1, len(dice)):
+			if dice[y].value == last_value: continue
+
+			if dice[y].value == last_value + 1:
+				consecutive_count += 1
+
+				if consecutive_count == 3:
+					return 30
+
+			else: break
+			last_value = dice[y].value
+			
 	return 0
 
 func _compare_dice(a, b):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://du4icow7bd821"]
 
-[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Tricks/PatternTrick.tscn" id="1_d42j7"]
+[ext_resource type="PackedScene" uid="uid://duxlllwxhcd5a" path="res://Scenes/Core/PatternTrick.tscn" id="1_d42j7"]
 [ext_resource type="Script" path="res://Scripts/Tricks/FourOfAKind.gd" id="2_fnswl"]
 
 [node name="FourOfAKind" instance=ExtResource("1_d42j7")]

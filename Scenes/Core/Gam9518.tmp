@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://byibymnmq0dka"]
+
+[ext_resource type="Script" path="res://Scripts/Core/Game.gd" id="1_0tbf3"]
+[ext_resource type="PackedScene" uid="uid://bnt5srpmcorsp" path="res://Scenes/Core/KeyGameScene.tscn" id="2_rollb"]
+[ext_resource type="Theme" uid="uid://dctl106ecm0df" path="res://Assets/UI_Theme.tres" id="3_uepxn"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/UpgradesContainer.gd" id="4_rg1yg"]
+
+[node name="Game" type="Node2D" groups=["Game"]]
+script = ExtResource("1_0tbf3")
+
+[node name="KeyGameScene" parent="." instance=ExtResource("2_rollb")]
+
+[node name="EndGamePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 292.0
+offset_top = 36.0
+offset_right = 789.0
+offset_bottom = 635.0
+
+[node name="FinalScore" type="Label" parent="EndGamePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = 137.0
+offset_right = 505.0
+offset_bottom = 267.0
+theme_override_font_sizes/font_size = 64
+text = "Final Score: "
+
+[node name="NewGame" type="Button" parent="EndGamePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 149.0
+offset_top = 245.0
+offset_right = 325.0
+offset_bottom = 298.0
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+
+[node name="UpgradePanel" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = 59.0
+offset_top = 142.0
+offset_right = 1016.0
+offset_bottom = 542.0
+theme = ExtResource("3_uepxn")
+
+[node name="UpgradesContainer" type="HBoxContainer" parent="UpgradePanel"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 43.0
+offset_right = 890.0
+offset_bottom = 363.0
+theme_override_constants/separation = 190
+alignment = 1
+script = ExtResource("4_rg1yg")
+
+[connection signal="pressed" from="EndGamePanel/NewGame" to="." method="_on_new_game_pressed"]
