@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dimx2garvmpht"]
 
-[ext_resource type="Script" path="res://Scripts/Tricks/Trick.gd" id="1_00yqq"]
+[ext_resource type="Script" path="res://Scripts/Core/Trick.gd" id="1_bncn3"]
 
 [node name="BaseTrick" type="HBoxContainer" groups=["Trick"]]
 custom_minimum_size = Vector2(80, 0)
 offset_right = 213.0
 offset_bottom = 31.0
 theme_override_constants/separation = 15
-script = ExtResource("1_00yqq")
+script = ExtResource("1_bncn3")
 
 [node name="Label" type="Label" parent="."]
 unique_name_in_owner = true

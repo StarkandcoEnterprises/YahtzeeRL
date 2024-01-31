@@ -60,3 +60,21 @@ func toggle_roll():
 func toggle_visibility_of_hold():
 	for die in get_tree().get_nodes_in_group("Dice"):
 		die.get_node("%Button").visible = !die.get_node("%Button").visible
+
+func joker_yahtzee(yahtzee_number):
+	var trick_found = false
+	for trick in get_tree().get_nodes_in_group("Trick"):
+		if trick.number == yahtzee_number and !trick.accepted:
+			trick_found = true
+			break
+	if !trick_found: return
+	for trick in get_tree().get_nodes_in_group("Trick"):
+		if trick.number != yahtzee_number:
+			trick.get_node("%Button").disabled = true
+
+func end_joker():
+	for trick in get_tree().get_nodes_in_group("Trick"):
+		if !trick.accepted:
+			trick.get_node("%Button").disabled = false
+		if trick.string_name == "Yahtzee" and trick.state == trick.JOKER:
+			trick.state = trick.MULTI_YAHTZEE

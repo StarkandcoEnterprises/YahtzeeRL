@@ -2,8 +2,6 @@ extends PatternTrick
 
 class_name LargeStraight
 
-
-##TODO: FIX THIS
 func trick_calculation() -> int:
 	var dice = get_tree().get_nodes_in_group("Dice")
 	

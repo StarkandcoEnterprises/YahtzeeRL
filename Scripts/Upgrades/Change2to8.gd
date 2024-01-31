@@ -5,7 +5,7 @@ class_name ChangeTwoToEight
 func _on_button_pressed():
 	change_trick()
 	change_dice()
-	get_tree().get_first_node_in_group("Game").get_node("KeyGameScene").reset_rolls()
+	get_tree().get_first_node_in_group("KeyScene").reset_rolls()
 	super()
 
 func change_trick():

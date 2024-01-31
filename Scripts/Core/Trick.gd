@@ -2,8 +2,6 @@ extends HBoxContainer
 
 class_name Trick
 
-@onready var game = get_tree().get_first_node_in_group("Game")
-
 @export var number = 0
 @export var string_name = "Ones"
 
@@ -26,12 +24,14 @@ func calculate():
 
 
 func _on_button_pressed():
+	var game = get_tree().get_first_node_in_group("KeyScene")
 	accepted = true
 	%Button.disabled = true
 	
-	game.get_node("KeyGameScene").calculate_score()
+	game.calculate_score()
 	
-	if game.continue_game():
-		game.get_node("KeyGameScene").reset_rolls()
+	if get_tree().get_first_node_in_group("Game").continue_game():
+		game.end_joker()
+		game.reset_rolls()
 	else:
-		game.game_over()
+		get_tree().get_first_node_in_group("Game").game_over()

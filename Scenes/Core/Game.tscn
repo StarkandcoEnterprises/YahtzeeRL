@@ -3,12 +3,13 @@
 [ext_resource type="Script" path="res://Scripts/Core/Game.gd" id="1_0tbf3"]
 [ext_resource type="PackedScene" uid="uid://bnt5srpmcorsp" path="res://Scenes/Core/KeyGameScene.tscn" id="2_rollb"]
 [ext_resource type="Theme" uid="uid://dctl106ecm0df" path="res://Assets/UI_Theme.tres" id="3_uepxn"]
-[ext_resource type="Script" path="res://Scripts/Upgrades/UpgradesContainer.gd" id="4_rg1yg"]
+[ext_resource type="Script" path="res://Scripts/Core/UpgradesContainer.gd" id="4_rg1yg"]
 
 [node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_0tbf3")
+key_scene = ExtResource("2_rollb")
 
-[node name="KeyGameScene" parent="." instance=ExtResource("2_rollb")]
+[node name="KeySceneContainer" type="Node2D" parent="."]
 
 [node name="EndGamePanel" type="Panel" parent="."]
 unique_name_in_owner = true

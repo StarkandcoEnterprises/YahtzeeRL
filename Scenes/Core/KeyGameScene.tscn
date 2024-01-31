@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://m7nxjcugmp68" path="res://Scenes/Tricks/Chance.tscn" id="9_cpe8r"]
 [ext_resource type="PackedScene" uid="uid://c3ohljw8413sf" path="res://Scenes/Tricks/Yahtzee.tscn" id="10_mijn3"]
 
-[node name="KeyGameScene" type="VBoxContainer"]
+[node name="KeyGameScene" type="VBoxContainer" groups=["KeyScene"]]
 offset_left = 316.0
 offset_top = 66.0
 offset_right = 758.0

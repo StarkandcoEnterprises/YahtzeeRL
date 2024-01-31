@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnu4ty5bwxwhw"]
+
+[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_lp3kl"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/SecondFourRand.gd" id="2_ctah4"]
+[ext_resource type="Texture2D" uid="uid://2ywikedjmrpa" path="res://Assets/Dice-4.png" id="3_0wuyg"]
+
+[node name="SecondFourRand" instance=ExtResource("1_lp3kl")]
+script = ExtResource("2_ctah4")
+
+[node name="Sprite2D" parent="Control" index="0"]
+modulate = Color(0.862745, 0.678431, 0.298039, 1)
+texture = ExtResource("3_0wuyg")
+
+[node name="Label" parent="." index="1"]
+text = "Set a random Number (left column) trick to be another \"Fours\" trick. The dice does not update to match."

@@ -9,7 +9,7 @@ func _on_yahtzee_pressed():
 	for die: Dice in get_tree().get_nodes_in_group("Dice"):
 		die.value = new_val
 		die.texture = die.textures[new_val]
-	game.get_node("KeyGameScene").calculate_totals()
+	game.get_node("KeySceneContainer").get_child(0).calculate_totals()
 
 
 func _on_full_house_pressed():
@@ -32,10 +32,9 @@ func _on_full_house_pressed():
 			die.value = second_new_val
 			die.texture = die.textures[second_new_val]
 	
-	game.get_node("KeyGameScene").calculate_totals()
+	game.get_node("KeySceneContainer").get_child(0).calculate_totals()
 	
 func _on_upgrade_menu_pressed():
-	game.get_node("%UpgradePanel").visible = true
 	
 	var number_of_upgrades = 3
 	
@@ -46,8 +45,12 @@ func _on_upgrade_menu_pressed():
 	
 	if number_of_upgrades == 0: return
 	
-	for x in number_of_upgrades:
-		var upgrade = game.upgrades.pop_at(randi_range(0, game.upgrades.size() - 1))
-		game.get_node("%UpgradePanel").get_child(0).add_child(game.upgrades.pop_at(randi_range(0, game.upgrades.size() - 1)))
+	game.upgrades.shuffle()
+	
+	for x in range(number_of_upgrades):
+		if game.upgrades.size() == 0: break
+		var upgrade = game.upgrades.pop_front()
 		if is_instance_valid(upgrade):
 			game.get_node("%UpgradePanel").get_child(0).add_child(upgrade)
+	if game.get_node("%UpgradePanel").get_child(0).get_child_count() > 0:
+		game.get_node("%UpgradePanel").visible = true
