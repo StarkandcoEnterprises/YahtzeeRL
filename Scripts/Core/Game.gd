@@ -74,12 +74,13 @@ func reset_tricks():
 		if trick is Yahtzee:
 			trick.state = trick.UNSCORED
 			trick.total = 0
+			trick.yahtzees_scored = 0
 
 func _on_new_game_pressed():
 	%EndGamePanel.visible = false
 	get_tree().get_first_node_in_group("KeyScene").queue_free()
-	await get_tree().physics_frame
-	await get_tree().physics_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
 	$KeySceneContainer.add_child(key_scene.instantiate())
 
 func toggle_dice_roll_buttons():
