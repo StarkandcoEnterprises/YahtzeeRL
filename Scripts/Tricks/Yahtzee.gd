@@ -44,6 +44,8 @@ func _on_button_pressed():
 			state = MULTI_YAHTZEE
 		if state == UNSCORED:
 			state = YAHTZEE
+	else:
+		state = ZERO_SCORED
 	accepted = true
 	%Button.disabled = true
 	

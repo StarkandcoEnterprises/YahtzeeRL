@@ -78,7 +78,8 @@ func reset_tricks():
 func _on_new_game_pressed():
 	%EndGamePanel.visible = false
 	get_tree().get_first_node_in_group("KeyScene").queue_free()
-	await get_tree().process_frame
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	$KeySceneContainer.add_child(key_scene.instantiate())
 
 func toggle_dice_roll_buttons():
