@@ -22,6 +22,8 @@ func determine_yahtzee():
 	var first_die_count = 0
 	
 	for die in dice:
+		if die.value == -1:
+			return false
 		if !first_die:
 			first_die = die
 		if die.value == first_die.value:

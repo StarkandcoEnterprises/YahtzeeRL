@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://c7kbtd7os7n00"]
+
+[ext_resource type="PackedScene" uid="uid://35sf1dj6wyqs" path="res://Scenes/Dice/Dice3D.tscn" id="1_70irg"]
+[ext_resource type="Script" path="res://Scenes/Dice/DiceContainer.gd" id="1_iwtgv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g3m7j"]
+size = Vector2(100, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnn67"]
+albedo_color = Color(0.290196, 0.533333, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ekrm7"]
+size = Vector3(50, 50, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ro2w3"]
+size = Vector3(1, 50, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkqmj"]
+size = Vector3(50, 1, 25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_32fk1"]
+size = Vector3(50, 20, 50)
+
+[node name="DiceContainer" type="SubViewportContainer"]
+script = ExtResource("1_iwtgv")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+mesh_lod_threshold = 0.1
+size = Vector2i(300, 350)
+render_target_update_mode = 4
+
+[node name="Node3D" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110035, 0, 0.0844269)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Node3D"]
+mesh = SubResource("PlaneMesh_g3m7j")
+surface_material_override/0 = SubResource("StandardMaterial3D_nnn67")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
+shadow_enabled = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+shape = SubResource("BoxShape3D_ekrm7")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+shape = SubResource("BoxShape3D_ekrm7")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
+shape = SubResource("BoxShape3D_ro2w3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
+shape = SubResource("BoxShape3D_ro2w3")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_xkqmj")
+
+[node name="Area3D" type="Area3D" parent="SubViewport/Node3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+collision_layer = 2
+collision_mask = 2
+priority = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/Area3D"]
+shape = SubResource("BoxShape3D_32fk1")
+
+[node name="Dice" parent="SubViewport/Node3D" instance=ExtResource("1_70irg")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10027, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00287819, 6.36424, 30.5511)
+current = true
+
+[connection signal="body_entered" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_body_exited"]

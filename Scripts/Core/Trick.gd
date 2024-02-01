@@ -20,6 +20,8 @@ func calculate():
 	if accepted: return
 	total = 0
 	for die in get_tree().get_nodes_in_group("Dice"):
+		if die.value == -1:
+			return
 		if die.value == number:
 			total += (number + 1) * multiplier
 

@@ -17,6 +17,8 @@ config/icon="res://Assets/icon.svg"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1152
 window/size/mode=3
 window/stretch/mode="viewport"
 
@@ -26,6 +28,5 @@ export/convert_text_resources_to_binary=false
 
 [rendering]
 
-renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.301961, 0.301961, 0.301961, 1)
