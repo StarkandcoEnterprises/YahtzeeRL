@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://0fnngwwgj801"]
+
+[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_6t0du"]
+[ext_resource type="Script" path="res://Scripts/Upgrades/ExtraRoll.gd" id="2_01urj"]
+[ext_resource type="Texture2D" uid="uid://c8244wuj28fxg" path="res://Assets/PlusRoll.png" id="3_k1fmu"]
+
+[node name="ExtraRoll" instance=ExtResource("1_6t0du")]
+script = ExtResource("2_01urj")
+
+[node name="Sprite2D" parent="Control" index="0"]
+texture = ExtResource("3_k1fmu")
+
+[node name="Label" parent="." index="1"]
+text = "Get an extra roll!!"
