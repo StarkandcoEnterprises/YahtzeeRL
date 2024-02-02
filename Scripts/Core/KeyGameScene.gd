@@ -10,9 +10,14 @@ var minimum = 150
 func _ready():
 	roll()
 
+var counter = 0
+
 func _process(_delta):
+	counter += 1
 	%RollCount.text = str(current_rolls)
 	%Score.text = str(score) + " / " + str(minimum)
+	if counter % 2 == 0:
+		calculate_totals()
 
 func calculate_score():
 	score = 0
@@ -26,7 +31,7 @@ func _on_roll_pressed():
 	current_rolls -= 1
 	if current_rolls == 0:
 		toggle_roll()
-		toggle_visibility_of_hold()
+		toggle_hold()
 
 func roll():
 	for die in get_tree().get_nodes_in_group("Dice"):
@@ -41,23 +46,23 @@ func reset_rolls():
 	current_rolls = no_of_rolls
 	
 	for die in get_tree().get_nodes_in_group("Dice"):
-		if die is Dice3D: continue
 		if die.held:
-			die.unhold()
+			die.held = false
 	
 	roll()
 	
 	if !%Roll.disabled: return
 	toggle_roll()
-	toggle_visibility_of_hold()
+	toggle_hold()
 
 func toggle_roll():
 	%Roll.disabled = !%Roll.disabled
 	
-func toggle_visibility_of_hold():
-	for die in get_tree().get_nodes_in_group("Dice"):
-		if die is Dice3D: continue
-		die.get_node("%Button").visible = !die.get_node("%Button").visible
+func toggle_hold():
+	for button in $HoldButtons.get_children():
+		button.disabled = !button.disabled
+		if button.disabled == false:
+			button.button_pressed = false
 
 func joker_yahtzee(yahtzee_number):
 	var trick_found = false
@@ -78,20 +83,20 @@ func end_joker():
 			trick.state = trick.MULTI_YAHTZEE
 
 func _on_hold_first_toggled(toggled_on):
-	%FirstDice.held = toggled_on
+	$Dice3D/DiceContainer.get_node("%Dice").held = toggled_on
 
 
 func _on_hold_second_toggled(toggled_on):
-	%SecondDice.held = toggled_on
+	$Dice3D/DiceContainer2.get_node("%Dice").held = toggled_on
 
 
 func _on_hold_third_toggled(toggled_on):
-	%ThirdDice.held = toggled_on
+	$Dice3D/DiceContainer3.get_node("%Dice").held = toggled_on
 
 
 func _on_hold_fourth_toggled(toggled_on):
-	%FourthDice.held = toggled_on
+	$Dice3D/DiceContainer4.get_node("%Dice").held = toggled_on
 
 
 func _on_hold_fifth_toggled(toggled_on):
-	%FifthDice.held = toggled_on
+	$Dice3D/DiceContainer5.get_node("%Dice").held = toggled_on

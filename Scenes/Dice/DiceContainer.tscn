@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7kbtd7os7n00"]
+[gd_scene load_steps=10 format=3 uid="uid://c7kbtd7os7n00"]
 
 [ext_resource type="PackedScene" uid="uid://35sf1dj6wyqs" path="res://Scenes/Dice/Dice3D.tscn" id="1_70irg"]
 [ext_resource type="Script" path="res://Scenes/Dice/DiceContainer.gd" id="1_iwtgv"]
@@ -8,6 +8,9 @@ size = Vector2(100, 50)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnn67"]
 albedo_color = Color(0.290196, 0.533333, 0, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nx8x6"]
+rough = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ekrm7"]
 size = Vector3(50, 50, 1)
@@ -25,6 +28,7 @@ size = Vector3(50, 20, 50)
 script = ExtResource("1_iwtgv")
 
 [node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
 handle_input_locally = false
 mesh_lod_threshold = 0.1
 size = Vector2i(300, 350)
@@ -42,6 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D"]
+physics_material_override = SubResource("PhysicsMaterial_nx8x6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
@@ -76,9 +81,7 @@ shape = SubResource("BoxShape3D_32fk1")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10027, 0)
 
-[node name="Camera3D" type="Camera3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00287819, 6.36424, 30.5511)
-current = true
-
+[connection signal="area_entered" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_body_exited"]

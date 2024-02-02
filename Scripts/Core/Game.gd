@@ -84,7 +84,7 @@ func _on_new_game_pressed():
 	$KeySceneContainer.add_child(key_scene.instantiate())
 
 func toggle_dice_roll_buttons():
-	for die: Dice in get_tree().get_nodes_in_group("Dice"):
+	for die: Dice3D in get_tree().get_nodes_in_group("Dice"):
 		die.get_node("%Button").disabled = !die.get_node("%Button").disabled
 
 func create_array() -> Array[UpgradeOption]:

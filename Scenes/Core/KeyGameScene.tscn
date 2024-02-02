@@ -1,10 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bnt5srpmcorsp"]
+[gd_scene load_steps=11 format=3 uid="uid://bnt5srpmcorsp"]
 
 [ext_resource type="Script" path="res://Scripts/Core/KeyGameScene.gd" id="1_q24a5"]
 [ext_resource type="PackedScene" uid="uid://c7kbtd7os7n00" path="res://Scenes/Dice/DiceContainer.tscn" id="2_jm218"]
-[ext_resource type="PackedScene" uid="uid://35sf1dj6wyqs" path="res://Scenes/Dice/Dice3D.tscn" id="3_hu811"]
 [ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Core/Trick.tscn" id="3_i1eqn"]
-[ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Dice/Dice.tscn" id="4_3j5hm"]
 [ext_resource type="PackedScene" uid="uid://peul4pny7b82" path="res://Scenes/Tricks/ThreeOfAKind.tscn" id="4_o2eyt"]
 [ext_resource type="PackedScene" uid="uid://du4icow7bd821" path="res://Scenes/Tricks/FourOfAKind.tscn" id="5_4leqs"]
 [ext_resource type="PackedScene" uid="uid://tk4qypgem8ec" path="res://Scenes/Tricks/FullHouse.tscn" id="6_fgw2r"]
@@ -12,21 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cyrpp4sb1l8vu" path="res://Scenes/Tricks/LargeStraight.tscn" id="8_b4qix"]
 [ext_resource type="PackedScene" uid="uid://m7nxjcugmp68" path="res://Scenes/Tricks/Chance.tscn" id="9_cpe8r"]
 [ext_resource type="PackedScene" uid="uid://c3ohljw8413sf" path="res://Scenes/Tricks/Yahtzee.tscn" id="10_mijn3"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_g3m7j"]
-size = Vector2(100, 50)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnn67"]
-albedo_color = Color(0.290196, 0.533333, 0, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ekrm7"]
-size = Vector3(50, 50, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ro2w3"]
-size = Vector3(1, 50, 25)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xkqmj"]
-size = Vector3(50, 1, 25)
 
 [node name="KeyGameScene" type="VBoxContainer" groups=["KeyScene"]]
 offset_top = 36.0
@@ -39,192 +22,20 @@ script = ExtResource("1_q24a5")
 layout_mode = 2
 alignment = 1
 
-[node name="FirstDiceContainer" parent="Dice3D" instance=ExtResource("2_jm218")]
+[node name="DiceContainer" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="SecondDiceContainer" type="SubViewportContainer" parent="Dice3D"]
+[node name="DiceContainer2" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Dice3D/SecondDiceContainer"]
-own_world_3d = true
-handle_input_locally = false
-mesh_lod_threshold = 0.1
-size = Vector2i(300, 350)
-render_target_update_mode = 4
-
-[node name="Node3D" type="Node3D" parent="Dice3D/SecondDiceContainer/SubViewport"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D"]
-mesh = SubResource("PlaneMesh_g3m7j")
-surface_material_override/0 = SubResource("StandardMaterial3D_nnn67")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
-shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_xkqmj")
-
-[node name="SecondDice" parent="Dice3D/SecondDiceContainer/SubViewport/Node3D" groups=["SecondDice"] instance=ExtResource("3_hu811")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="ThirdDiceContainer" type="SubViewportContainer" parent="Dice3D"]
+[node name="DiceContainer3" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Dice3D/ThirdDiceContainer"]
-own_world_3d = true
-handle_input_locally = false
-mesh_lod_threshold = 0.1
-size = Vector2i(300, 350)
-render_target_update_mode = 4
-
-[node name="Node3D" type="Node3D" parent="Dice3D/ThirdDiceContainer/SubViewport"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D"]
-mesh = SubResource("PlaneMesh_g3m7j")
-surface_material_override/0 = SubResource("StandardMaterial3D_nnn67")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
-shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_xkqmj")
-
-[node name="ThirdDice" parent="Dice3D/ThirdDiceContainer/SubViewport/Node3D" groups=["ThirdDice"] instance=ExtResource("3_hu811")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="FourthDiceContainer" type="SubViewportContainer" parent="Dice3D"]
+[node name="DiceContainer4" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="SubViewport" type="SubViewport" parent="Dice3D/FourthDiceContainer"]
-own_world_3d = true
-handle_input_locally = false
-mesh_lod_threshold = 0.1
-size = Vector2i(300, 350)
-render_target_update_mode = 4
-
-[node name="Node3D" type="Node3D" parent="Dice3D/FourthDiceContainer/SubViewport"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D"]
-mesh = SubResource("PlaneMesh_g3m7j")
-surface_material_override/0 = SubResource("StandardMaterial3D_nnn67")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
-shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_xkqmj")
-
-[node name="FourthDice" parent="Dice3D/FourthDiceContainer/SubViewport/Node3D" groups=["FourthDice"] instance=ExtResource("3_hu811")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-
-[node name="FifthDiceContainer" type="SubViewportContainer" parent="Dice3D"]
+[node name="DiceContainer5" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="Dice3D/FifthDiceContainer"]
-own_world_3d = true
-handle_input_locally = false
-mesh_lod_threshold = 0.1
-size = Vector2i(300, 350)
-render_target_update_mode = 4
-
-[node name="Node3D" type="Node3D" parent="Dice3D/FifthDiceContainer/SubViewport"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D"]
-mesh = SubResource("PlaneMesh_g3m7j")
-surface_material_override/0 = SubResource("StandardMaterial3D_nnn67")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
-shadow_enabled = true
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
-shape = SubResource("BoxShape3D_ekrm7")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
-shape = SubResource("BoxShape3D_ro2w3")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("BoxShape3D_xkqmj")
-
-[node name="FifthDice" parent="Dice3D/FifthDiceContainer/SubViewport/Node3D" groups=["FifthDice"] instance=ExtResource("3_hu811")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="HoldButtons" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -265,42 +76,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "Hold"
-
-[node name="Dice" type="HBoxContainer" parent="."]
-visible = false
-layout_mode = 2
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="DiceSet" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="Dice/DiceSet" instance=ExtResource("4_3j5hm")]
-
-[node name="DiceSet2" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="Dice/DiceSet2" instance=ExtResource("4_3j5hm")]
-
-[node name="DiceSet3" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="Dice/DiceSet3" instance=ExtResource("4_3j5hm")]
-
-[node name="DiceSet4" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="Dice/DiceSet4" instance=ExtResource("4_3j5hm")]
-
-[node name="DiceSet5" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
-layout_mode = 2
-
-[node name="Dice" parent="Dice/DiceSet5" instance=ExtResource("4_3j5hm")]
 
 [node name="Roll" type="Button" parent="."]
 unique_name_in_owner = true
