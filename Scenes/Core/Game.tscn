@@ -11,7 +11,9 @@ key_scene = ExtResource("2_rollb")
 
 [node name="KeySceneContainer" type="Node2D" parent="."]
 
-[node name="EndGamePanel" type="Panel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndGamePanel" type="Panel" parent="CanvasLayer"]
 unique_name_in_owner = true
 visible = false
 offset_left = 292.0
@@ -19,7 +21,7 @@ offset_top = 36.0
 offset_right = 789.0
 offset_bottom = 635.0
 
-[node name="FinalScore" type="Label" parent="EndGamePanel"]
+[node name="FinalScore" type="Label" parent="CanvasLayer/EndGamePanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 2.0
@@ -29,7 +31,7 @@ offset_bottom = 267.0
 theme_override_font_sizes/font_size = 64
 text = "Final Score: "
 
-[node name="NewGame" type="Button" parent="EndGamePanel"]
+[node name="NewGame" type="Button" parent="CanvasLayer/EndGamePanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 149.0
@@ -39,16 +41,31 @@ offset_bottom = 298.0
 theme_override_font_sizes/font_size = 32
 text = "New Game"
 
-[node name="UpgradePanel" type="Panel" parent="."]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1152.0
+mouse_filter = 2
+
+[node name="UpgradePanel" type="Panel" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 visible = false
-offset_left = 59.0
-offset_top = 142.0
-offset_right = 1016.0
-offset_bottom = 542.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -478.5
+offset_top = -200.0
+offset_right = 478.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3_uepxn")
 
-[node name="UpgradesContainer" type="HBoxContainer" parent="UpgradePanel"]
+[node name="UpgradesContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpgradePanel"]
 layout_mode = 0
 offset_left = 60.0
 offset_top = 43.0
@@ -58,4 +75,4 @@ theme_override_constants/separation = 190
 alignment = 1
 script = ExtResource("4_rg1yg")
 
-[connection signal="pressed" from="EndGamePanel/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/EndGamePanel/NewGame" to="." method="_on_new_game_pressed"]

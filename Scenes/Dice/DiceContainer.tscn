@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7kbtd7os7n00"]
+[gd_scene load_steps=13 format=3 uid="uid://c7kbtd7os7n00"]
 
 [ext_resource type="PackedScene" uid="uid://35sf1dj6wyqs" path="res://Scenes/Dice/Dice3D.tscn" id="1_70irg"]
 [ext_resource type="Script" path="res://Scenes/Dice/DiceContainer.gd" id="1_iwtgv"]
+[ext_resource type="Script" path="res://Scenes/Dice/DebugDice3D.gd" id="3_ddglu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g3m7j"]
-size = Vector2(100, 50)
+size = Vector2(200, 200)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnn67"]
 albedo_color = Color(0.290196, 0.533333, 0, 1)
@@ -24,6 +25,11 @@ size = Vector3(50, 1, 25)
 [sub_resource type="BoxShape3D" id="BoxShape3D_32fk1"]
 size = Vector3(50, 20, 50)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdveb"]
+
+[sub_resource type="Theme" id="Theme_c2w0n"]
+Button/styles/disabled = SubResource("StyleBoxFlat_qdveb")
+
 [node name="DiceContainer" type="SubViewportContainer"]
 script = ExtResource("1_iwtgv")
 
@@ -42,7 +48,7 @@ mesh = SubResource("PlaneMesh_g3m7j")
 surface_material_override/0 = SubResource("StandardMaterial3D_nnn67")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, 0.984808, 0, -0.984808, 0.173648, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 0.513092, 0.858334, 0, -0.858334, 0.513092, 0, 10, 11.0231)
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewport/Node3D"]
@@ -79,9 +85,24 @@ shape = SubResource("BoxShape3D_32fk1")
 
 [node name="Dice" parent="SubViewport/Node3D" instance=ExtResource("1_70irg")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10027, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.87671, 15.4054)
+
+[node name="Debug2" type="Window" parent="."]
+position = Vector2i(0, 36)
+visible = false
+script = ExtResource("3_ddglu")
+
+[node name="Button" type="Button" parent="Debug2"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = SubResource("Theme_c2w0n")
+text = "Roll die"
 
 [connection signal="area_entered" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_area_exited"]
 [connection signal="body_entered" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="SubViewport/Node3D/Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="pressed" from="Debug2/Button" to="Debug2" method="_on_button_pressed"]

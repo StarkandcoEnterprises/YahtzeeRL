@@ -10,14 +10,10 @@ var minimum = 150
 func _ready():
 	roll()
 
-var counter = 0
-
 func _process(_delta):
-	counter += 1
 	%RollCount.text = str(current_rolls)
 	%Score.text = str(score) + " / " + str(minimum)
-	if counter % 2 == 0:
-		calculate_totals()
+	calculate_totals()
 
 func calculate_score():
 	score = 0
@@ -31,7 +27,7 @@ func _on_roll_pressed():
 	current_rolls -= 1
 	if current_rolls == 0:
 		toggle_roll()
-		toggle_hold()
+		set_all_hold(true)
 
 func roll():
 	for die in get_tree().get_nodes_in_group("Dice"):
@@ -53,14 +49,14 @@ func reset_rolls():
 	
 	if !%Roll.disabled: return
 	toggle_roll()
-	toggle_hold()
+	set_all_hold(false)
 
 func toggle_roll():
 	%Roll.disabled = !%Roll.disabled
 	
-func toggle_hold():
+func set_all_hold(disabled):
 	for button in $HoldButtons.get_children():
-		button.disabled = !button.disabled
+		button.disabled = disabled
 		if button.disabled == false:
 			button.button_pressed = false
 

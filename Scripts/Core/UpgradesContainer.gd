@@ -8,4 +8,4 @@ func reset(removed_upgrade):
 		await get_tree().process_frame
 	for child in get_children():
 		remove_child(child)
-		get_parent().get_parent().reaccept_node(child)
+		get_tree().get_first_node_in_group("Game").reaccept_node(child)

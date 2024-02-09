@@ -20,7 +20,6 @@ func continue_game():
 func game_over():
 	var current_scene = get_tree().get_first_node_in_group("KeyScene")
 	current_scene.current_rolls = 0
-	toggle_dice_roll_buttons()
 	current_scene.toggle_roll()
 	
 	var score = calculate_final_score()
@@ -43,7 +42,6 @@ func game_over():
 		if number_of_upgrades == 0: 
 			games_complete += 1
 			reset_tricks()
-			toggle_dice_roll_buttons()
 			current_scene.toggle_roll()
 			return
 		
@@ -58,7 +56,6 @@ func game_over():
 			%UpgradePanel.visible = true
 		games_complete += 1
 		reset_tricks()
-		toggle_dice_roll_buttons()
 		current_scene.toggle_roll()
 
 func calculate_final_score() -> int:
@@ -82,10 +79,6 @@ func _on_new_game_pressed():
 	while is_instance_valid(get_tree().get_first_node_in_group("KeyScene")):
 		await get_tree().process_frame
 	$KeySceneContainer.add_child(key_scene.instantiate())
-
-func toggle_dice_roll_buttons():
-	for die: Dice3D in get_tree().get_nodes_in_group("Dice"):
-		die.get_node("%Button").disabled = !die.get_node("%Button").disabled
 
 func create_array() -> Array[UpgradeOption]:
 	var path = "res://Scenes/Upgrades/"

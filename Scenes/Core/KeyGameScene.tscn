@@ -14,7 +14,7 @@
 [node name="KeyGameScene" type="VBoxContainer" groups=["KeyScene"]]
 offset_top = 36.0
 offset_right = 1920.0
-offset_bottom = 1116.0
+offset_bottom = 1126.0
 theme_override_constants/separation = 50
 script = ExtResource("1_q24a5")
 
@@ -42,35 +42,35 @@ layout_mode = 2
 theme_override_constants/separation = 200
 alignment = 1
 
-[node name="HoldFirst" type="Button" parent="HoldButtons"]
+[node name="HoldFirst" type="Button" parent="HoldButtons" groups=["Hold"]]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "Hold"
 
-[node name="HoldSecond" type="Button" parent="HoldButtons"]
+[node name="HoldSecond" type="Button" parent="HoldButtons" groups=["Hold"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "Hold"
 
-[node name="HoldThird" type="Button" parent="HoldButtons"]
+[node name="HoldThird" type="Button" parent="HoldButtons" groups=["Hold"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "Hold"
 
-[node name="HoldFourth" type="Button" parent="HoldButtons"]
+[node name="HoldFourth" type="Button" parent="HoldButtons" groups=["Hold"]]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "Hold"
 
-[node name="HoldFifth" type="Button" parent="HoldButtons"]
+[node name="HoldFifth" type="Button" parent="HoldButtons" groups=["Hold"]]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32

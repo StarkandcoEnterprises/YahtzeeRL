@@ -37,5 +37,6 @@ func _on_button_pressed():
 	if get_tree().get_first_node_in_group("Game").continue_game():
 		game.end_joker()
 		game.reset_rolls()
+		game.set_all_hold(false)
 	else:
 		get_tree().get_first_node_in_group("Game").game_over()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmfsrary5f3qa"]
 
-[ext_resource type="Texture2D" uid="uid://cxrxv3jlomut6" path="res://Assets/Dice-1.png" id="1_2cvwf"]
+[ext_resource type="Texture2D" uid="uid://cxrxv3jlomut6" path="res://Assets/Upgrade pngs/Dice-1.png" id="1_2cvwf"]
 [ext_resource type="Script" path="res://Scripts/Core/Dice.gd" id="2_uipss"]
 
 [node name="Dice" type="Sprite2D" groups=["Dice2D"]]
