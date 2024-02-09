@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkfyo3r8lx85o"]
 
 [ext_resource type="Script" path="res://Scripts/Core/UpgradeOption.gd" id="1_s4w6i"]
-[ext_resource type="Texture2D" uid="uid://ctsr3ivs8d2h" path="res://Assets/Dice-Base.png" id="2_r8sa6"]
+[ext_resource type="Texture2D" uid="uid://ctsr3ivs8d2h" path="res://Assets/Upgrade pngs/Dice-Base.png" id="2_r8sa6"]
 
 [node name="UpgradeOption" type="VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)

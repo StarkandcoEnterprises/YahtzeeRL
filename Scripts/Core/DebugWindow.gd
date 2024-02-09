@@ -4,33 +4,41 @@ extends Window
 
 func _on_yahtzee_pressed():
 	var ref_die = get_tree().get_first_node_in_group("Dice")
-	var new_val = ref_die.possible_values[randi_range(0, 5)]
+	var possible_values = []
 	
-	for die: Dice in get_tree().get_nodes_in_group("Dice"):
+	for child in ref_die.get_children():
+		if child.is_in_group("Side"):
+			possible_values.append(int(String(child.name)))
+	
+	var new_val = possible_values[randi_range(0, 5)]
+	
+	for die in get_tree().get_nodes_in_group("Dice"):
 		die.value = new_val
-		die.texture = die.textures[new_val]
 	game.get_node("KeySceneContainer").get_child(0).calculate_totals()
 
 
 func _on_full_house_pressed():
 	var ref_die = get_tree().get_first_node_in_group("Dice")
+	var possible_values = []
 	
-	var new_val = ref_die.possible_values[randi_range(0, 5)]
-	var second_new_val = ref_die.possible_values[randi_range(0, 5)]
+	for child in ref_die.get_children():
+		if child.is_in_group("Side"):
+			possible_values.append(int(String(child.name)))
+	
+	var new_val = possible_values[randi_range(0, 5)]
+	var second_new_val = possible_values[randi_range(0, 5)]
 	
 	while(new_val == second_new_val):
-		second_new_val = ref_die.possible_values[randi_range(0, 5)]
+		second_new_val = possible_values[randi_range(0, 5)]
 	
 	var count = 0
 	
-	for die: Dice in get_tree().get_nodes_in_group("Dice"):
+	for die in get_tree().get_nodes_in_group("Dice"):
 		if count < 3:
 			die.value = new_val
-			die.texture = die.textures[new_val]
 			count += 1
 		else:
 			die.value = second_new_val
-			die.texture = die.textures[second_new_val]
 	
 	game.get_node("KeySceneContainer").get_child(0).calculate_totals()
 	
@@ -54,3 +62,7 @@ func _on_upgrade_menu_pressed():
 			game.get_node("%UpgradePanel").get_child(0).add_child(upgrade)
 	if game.get_node("%UpgradePanel").get_child(0).get_child_count() > 0:
 		game.get_node("%UpgradePanel").visible = true
+
+
+func _on_twod_dice_pressed():
+	$"VBoxContainer/2DDiceControl".visible = !$"VBoxContainer/2DDiceControl".visible

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_nsfxb"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/SecondFiveRand.gd" id="2_jobi8"]
-[ext_resource type="Texture2D" uid="uid://bfdysvq6fqe1i" path="res://Assets/Dice-5.png" id="3_hn473"]
+[ext_resource type="Texture2D" uid="uid://bfdysvq6fqe1i" path="res://Assets/Upgrade pngs/Dice-5.png" id="3_hn473"]
 
 [node name="SecondFiveRand" instance=ExtResource("1_nsfxb")]
 script = ExtResource("2_jobi8")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm0ydby5b6tro"]
+[gd_scene load_steps=4 format=3 uid="uid://bm0ydby5b6tro"]
 
 [ext_resource type="PackedScene" uid="uid://byibymnmq0dka" path="res://Scenes/Core/Game.tscn" id="1_w7yhi"]
 [ext_resource type="Script" path="res://Scripts/Core/DebugWindow.gd" id="2_edkyt"]
+[ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Dice/Dice.tscn" id="3_otrek"]
 
 [node name="MainScene" type="Control"]
 layout_mode = 3
@@ -18,7 +19,7 @@ offset_bottom = 648.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1152)
 render_target_update_mode = 4
 
 [node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_w7yhi")]
@@ -29,7 +30,7 @@ render_target_update_mode = 4
 gui_embed_subwindows = true
 title = "Debug Window"
 position = Vector2i(30, 36)
-size = Vector2i(200, 200)
+size = Vector2i(200, 160)
 script = ExtResource("2_edkyt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DebugWindow"]
@@ -51,6 +52,51 @@ text = "Get Full House!"
 layout_mode = 2
 text = "Open Upgrade Menu"
 
+[node name="2DDice" type="Button" parent="DebugWindow/VBoxContainer"]
+layout_mode = 2
+text = "Open 2D dice"
+
+[node name="2DDiceControl" type="Control" parent="DebugWindow/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Dice" type="HBoxContainer" parent="DebugWindow/VBoxContainer/2DDiceControl"]
+process_mode = 4
+layout_mode = 0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="DiceSet" type="Control" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice/DiceSet" groups=["2DDice"] instance=ExtResource("3_otrek")]
+
+[node name="DiceSet2" type="Control" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice/DiceSet2" groups=["2DDice"] instance=ExtResource("3_otrek")]
+
+[node name="DiceSet3" type="Control" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice/DiceSet3" groups=["2DDice"] instance=ExtResource("3_otrek")]
+
+[node name="DiceSet4" type="Control" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice/DiceSet4" groups=["2DDice"] instance=ExtResource("3_otrek")]
+
+[node name="DiceSet5" type="Control" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice"]
+custom_minimum_size = Vector2(64, 110)
+layout_mode = 2
+
+[node name="Dice" parent="DebugWindow/VBoxContainer/2DDiceControl/Dice/DiceSet5" groups=["2DDice"] instance=ExtResource("3_otrek")]
+
 [connection signal="pressed" from="DebugWindow/VBoxContainer/Yahtzee" to="DebugWindow" method="_on_yahtzee_pressed"]
 [connection signal="pressed" from="DebugWindow/VBoxContainer/FullHouse" to="DebugWindow" method="_on_full_house_pressed"]
 [connection signal="pressed" from="DebugWindow/VBoxContainer/UpgradeMenu" to="DebugWindow" method="_on_upgrade_menu_pressed"]
+[connection signal="pressed" from="DebugWindow/VBoxContainer/2DDice" to="DebugWindow" method="_on_twod_dice_pressed"]

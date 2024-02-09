@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_3pfwf"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/Change2to8.gd" id="2_4nxbv"]
-[ext_resource type="Texture2D" uid="uid://geo7740s01he" path="res://Assets/Dice-8.png" id="3_7gqh8"]
+[ext_resource type="Texture2D" uid="uid://geo7740s01he" path="res://Assets/Upgrade pngs/Dice-8.png" id="3_7gqh8"]
 
 [node name="Change2To8" instance=ExtResource("1_3pfwf")]
 script = ExtResource("2_4nxbv")

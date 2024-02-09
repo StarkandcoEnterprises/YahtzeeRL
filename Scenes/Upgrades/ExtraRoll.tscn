@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_6t0du"]
 [ext_resource type="Script" path="res://Scripts/Upgrades/ExtraRoll.gd" id="2_01urj"]
-[ext_resource type="Texture2D" uid="uid://c8244wuj28fxg" path="res://Assets/PlusRoll.png" id="3_k1fmu"]
+[ext_resource type="Texture2D" uid="uid://c8244wuj28fxg" path="res://Assets/Upgrade pngs/PlusRoll.png" id="3_k1fmu"]
 
 [node name="ExtraRoll" instance=ExtResource("1_6t0du")]
 script = ExtResource("2_01urj")

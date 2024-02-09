@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmfsrary5f3qa"]
+
+[ext_resource type="Texture2D" uid="uid://cxrxv3jlomut6" path="res://Assets/Upgrade pngs/Dice-1.png" id="1_2cvwf"]
+[ext_resource type="Script" path="res://Scripts/Core/Dice.gd" id="2_uipss"]
+
+[node name="Dice" type="Sprite2D" groups=["Dice2D"]]
+texture = ExtResource("1_2cvwf")
+centered = false
+script = ExtResource("2_uipss")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+offset_left = 9.0
+offset_top = 76.0
+offset_right = 54.0
+offset_bottom = 107.0
+toggle_mode = true
+text = "Hold"
+
+[connection signal="toggled" from="Button" to="." method="_on_button_toggled"]

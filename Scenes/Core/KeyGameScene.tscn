@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bnt5srpmcorsp"]
 
 [ext_resource type="Script" path="res://Scripts/Core/KeyGameScene.gd" id="1_q24a5"]
-[ext_resource type="PackedScene" uid="uid://cmfsrary5f3qa" path="res://Scenes/Core/Dice.tscn" id="1_rb7kb"]
+[ext_resource type="PackedScene" uid="uid://c7kbtd7os7n00" path="res://Scenes/Dice/DiceContainer.tscn" id="2_jm218"]
 [ext_resource type="PackedScene" uid="uid://dimx2garvmpht" path="res://Scenes/Core/Trick.tscn" id="3_i1eqn"]
 [ext_resource type="PackedScene" uid="uid://peul4pny7b82" path="res://Scenes/Tricks/ThreeOfAKind.tscn" id="4_o2eyt"]
 [ext_resource type="PackedScene" uid="uid://du4icow7bd821" path="res://Scenes/Tricks/FourOfAKind.tscn" id="5_4leqs"]
@@ -12,136 +12,176 @@
 [ext_resource type="PackedScene" uid="uid://c3ohljw8413sf" path="res://Scenes/Tricks/Yahtzee.tscn" id="10_mijn3"]
 
 [node name="KeyGameScene" type="VBoxContainer" groups=["KeyScene"]]
-offset_left = 316.0
-offset_top = 66.0
-offset_right = 758.0
-offset_bottom = 548.0
+offset_top = 36.0
+offset_right = 1920.0
+offset_bottom = 1126.0
 theme_override_constants/separation = 50
 script = ExtResource("1_q24a5")
 
-[node name="Dice" type="HBoxContainer" parent="."]
+[node name="Dice3D" type="HBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 15
 alignment = 1
 
-[node name="DiceSet" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
+[node name="DiceContainer" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="Dice" parent="Dice/DiceSet" instance=ExtResource("1_rb7kb")]
-
-[node name="DiceSet2" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
+[node name="DiceContainer2" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="Dice" parent="Dice/DiceSet2" instance=ExtResource("1_rb7kb")]
-
-[node name="DiceSet3" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
+[node name="DiceContainer3" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="Dice" parent="Dice/DiceSet3" instance=ExtResource("1_rb7kb")]
-
-[node name="DiceSet4" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
+[node name="DiceContainer4" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="Dice" parent="Dice/DiceSet4" instance=ExtResource("1_rb7kb")]
-
-[node name="DiceSet5" type="Control" parent="Dice"]
-custom_minimum_size = Vector2(64, 110)
+[node name="DiceContainer5" parent="Dice3D" instance=ExtResource("2_jm218")]
 layout_mode = 2
 
-[node name="Dice" parent="Dice/DiceSet5" instance=ExtResource("1_rb7kb")]
+[node name="HoldButtons" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="HoldFirst" type="Button" parent="HoldButtons" groups=["Hold"]]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "Hold"
+
+[node name="HoldSecond" type="Button" parent="HoldButtons" groups=["Hold"]]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "Hold"
+
+[node name="HoldThird" type="Button" parent="HoldButtons" groups=["Hold"]]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "Hold"
+
+[node name="HoldFourth" type="Button" parent="HoldButtons" groups=["Hold"]]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "Hold"
+
+[node name="HoldFifth" type="Button" parent="HoldButtons" groups=["Hold"]]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "Hold"
 
 [node name="Roll" type="Button" parent="."]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
 text = "Roll"
 
 [node name="Data" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme_override_constants/separation = 200
+alignment = 1
 
 [node name="Label" type="Label" parent="Data"]
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Rolls!"
 
 [node name="RollCount" type="Label" parent="Data/Label"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 48.0
-offset_right = 88.0
-offset_bottom = 23.0
+offset_left = 90.0
+offset_right = 130.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
 text = "3"
 
 [node name="Label2" type="Label" parent="Data"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Score:"
 
 [node name="Score" type="Label" parent="Data/Label2"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 50.0
-offset_right = 90.0
-offset_bottom = 23.0
+offset_left = 100.0
+offset_right = 187.0
+offset_bottom = 45.0
+theme_override_font_sizes/font_size = 32
 
-[node name="Tricks" type="GridContainer" parent="."]
+[node name="Tricks" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Tricks" type="GridContainer" parent="Tricks"]
 layout_mode = 2
 theme_override_constants/h_separation = 40
 columns = 2
 
-[node name="Trick" parent="Tricks" instance=ExtResource("3_i1eqn")]
+[node name="Trick" parent="Tricks/Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 
-[node name="ThreeOfAKind" parent="Tricks" instance=ExtResource("4_o2eyt")]
+[node name="ThreeOfAKind" parent="Tricks/Tricks" instance=ExtResource("4_o2eyt")]
 layout_mode = 2
 
-[node name="Trick2" parent="Tricks" instance=ExtResource("3_i1eqn")]
+[node name="Trick2" parent="Tricks/Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 1
 string_name = "Twos"
 
-[node name="FourOfAKind" parent="Tricks" instance=ExtResource("5_4leqs")]
+[node name="FourOfAKind" parent="Tricks/Tricks" instance=ExtResource("5_4leqs")]
 layout_mode = 2
 
-[node name="Trick3" parent="Tricks" instance=ExtResource("3_i1eqn")]
+[node name="Trick3" parent="Tricks/Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 2
 string_name = "Threes"
 
-[node name="FullHouse" parent="Tricks" instance=ExtResource("6_fgw2r")]
+[node name="FullHouse" parent="Tricks/Tricks" instance=ExtResource("6_fgw2r")]
 layout_mode = 2
 
-[node name="Trick4" parent="Tricks" instance=ExtResource("3_i1eqn")]
+[node name="Trick4" parent="Tricks/Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 3
 string_name = "Fours"
 
-[node name="SmallStraight" parent="Tricks" instance=ExtResource("7_72nrs")]
+[node name="SmallStraight" parent="Tricks/Tricks" instance=ExtResource("7_72nrs")]
 layout_mode = 2
 
-[node name="Trick5" parent="Tricks" instance=ExtResource("3_i1eqn")]
+[node name="Trick5" parent="Tricks/Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 4
 string_name = "Fives"
 
-[node name="LargeStraight" parent="Tricks" instance=ExtResource("8_b4qix")]
+[node name="LargeStraight" parent="Tricks/Tricks" instance=ExtResource("8_b4qix")]
 layout_mode = 2
 
-[node name="Trick6" parent="Tricks" instance=ExtResource("3_i1eqn")]
+[node name="Trick6" parent="Tricks/Tricks" instance=ExtResource("3_i1eqn")]
 layout_mode = 2
 number = 5
 string_name = "Sixes"
 
-[node name="Chance" parent="Tricks" instance=ExtResource("9_cpe8r")]
+[node name="Chance" parent="Tricks/Tricks" instance=ExtResource("9_cpe8r")]
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="Tricks"]
+[node name="Control2" type="Control" parent="Tricks/Tricks"]
 layout_mode = 2
 
-[node name="Yahtzee" parent="Tricks" instance=ExtResource("10_mijn3")]
+[node name="Yahtzee" parent="Tricks/Tricks" instance=ExtResource("10_mijn3")]
 layout_mode = 2
 
+[connection signal="toggled" from="HoldButtons/HoldFirst" to="." method="_on_hold_first_toggled"]
+[connection signal="toggled" from="HoldButtons/HoldSecond" to="." method="_on_hold_second_toggled"]
+[connection signal="toggled" from="HoldButtons/HoldThird" to="." method="_on_hold_third_toggled"]
+[connection signal="toggled" from="HoldButtons/HoldFourth" to="." method="_on_hold_fourth_toggled"]
+[connection signal="toggled" from="HoldButtons/HoldFifth" to="." method="_on_hold_fifth_toggled"]
 [connection signal="pressed" from="Roll" to="." method="_on_roll_pressed"]

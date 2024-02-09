@@ -9,5 +9,5 @@ number = -1
 string_name = "Pattern"
 
 [node name="Label" parent="." index="0"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(200, 0)
 text = "Full House"
