@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd7rku0ua78lp"]
+
+[ext_resource type="PackedScene" uid="uid://bkfyo3r8lx85o" path="res://Scenes/Core/UpgradeOption.tscn" id="1_m12gc"]
+[ext_resource type="Script" path="res://ChanceFreeRoll.gd" id="2_dty5o"]
+[ext_resource type="Texture2D" uid="uid://iq6osq3np4db" path="res://Assets/Upgrade pngs/Dice-1-5-chance.png" id="3_ks8kt"]
+
+[node name="ChanceFreeRoll" instance=ExtResource("1_m12gc")]
+script = ExtResource("2_dty5o")
+
+[node name="Sprite2D" parent="Control" index="0"]
+texture = ExtResource("3_ks8kt")
+
+[node name="Label" parent="." index="1"]
+text = "1 in 5 chance for a roll to be free, allowing you one extra roll"

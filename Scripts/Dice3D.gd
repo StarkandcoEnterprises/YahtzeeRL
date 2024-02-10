@@ -12,10 +12,9 @@ func _ready():
 
 func roll():
 	if held: return
-	await get_tree().physics_frame
-	global_position = Vector3(0, 10, 0)
-	await get_tree().physics_frame
-	await get_tree().physics_frame
+	while global_position.y <= 9:
+		await get_tree().physics_frame
+		global_position = Vector3(0, 10, 0)
 	var x_rotate = randi_range(15, 30) if randi() % 2 == 0 else randi_range(-30, -15)
 	var y_rotate = randi_range(15, 30) if randi() % 2 == 0 else randi_range(-30, -15)
 	var z_rotate = randi_range(15, 30) if randi() % 2 == 0 else randi_range(-30, -15)
@@ -24,12 +23,6 @@ func roll():
 	value = -1
 
 func _physics_process(_delta):
-	var threshold = 0.01
-	if angular_velocity.length() < threshold:
-		angular_velocity = Vector3.ZERO
-	if linear_velocity.length() < threshold:
-		linear_velocity = Vector3.ZERO
-
-	if value == -1 and angular_velocity == Vector3.ZERO and linear_velocity == Vector3.ZERO:
+	if value == -1 and angular_velocity.round() == Vector3.ZERO and linear_velocity.round() == Vector3.ZERO:
 		if active_sides.size() == 1:
 			value = possible_values[int(String(active_sides[0].name))]

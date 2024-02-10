@@ -2,6 +2,7 @@ extends VBoxContainer
 
 var no_of_rolls: int = 2
 var current_rolls: int = 2
+var chance_free_roll: bool = false
 
 var score = 0
 var minimum = 150
@@ -24,7 +25,7 @@ func calculate_score():
 func _on_roll_pressed():
 	roll()
 	
-	current_rolls -= 1
+	current_rolls -= 1 if !chance_free_roll else (0 if randi() % 5 == 0 else 1)
 	if current_rolls == 0:
 		toggle_roll()
 		set_all_hold(true)

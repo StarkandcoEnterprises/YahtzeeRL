@@ -5,9 +5,7 @@ extends Node2D
 var games_complete = 1
 var score_minimum = 150
 
-var all_upgrades: Array[UpgradeOption] = create_array()
-#var all_upgrades: Array[UpgradeOption] = [preload("res://Scenes/Upgrades/Change1to7.tscn").instantiate(), preload("res://Scenes/Upgrades/Change2to8.tscn").instantiate(), preload("res://Scenes/Upgrades/Change3to9.tscn").instantiate(), preload("res://Scenes/Upgrades/SecondFiveRand.tscn").instantiate()]
-var upgrades: Array[UpgradeOption] = []
+var upgrades: Array[UpgradeOption] = create_array()
 
 func _ready():
 	$KeySceneContainer.add_child(key_scene.instantiate())
@@ -28,14 +26,14 @@ func game_over():
 		%FinalScore.text = "Final Score: " + str(score)
 		%EndGamePanel.visible = true
 		games_complete = 1
-		upgrades = all_upgrades.duplicate()
+		upgrades = create_array()
 	else:
 		current_scene.score = 0
 		current_scene.minimum += 50 * games_complete
 		var number_of_upgrades = 3
 		
 		if !upgrades:
-			upgrades = all_upgrades.duplicate()
+			upgrades = create_array()
 		
 		if upgrades.size() < 3: number_of_upgrades = upgrades.size()
 		

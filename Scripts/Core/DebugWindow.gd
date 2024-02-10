@@ -4,13 +4,7 @@ extends Window
 
 func _on_yahtzee_pressed():
 	var ref_die = get_tree().get_first_node_in_group("Dice")
-	var possible_values = []
-	
-	for child in ref_die.get_children():
-		if child.is_in_group("Side"):
-			possible_values.append(int(String(child.name)))
-	
-	var new_val = possible_values[randi_range(0, 5)]
+	var new_val = ref_die.possible_values[randi_range(0, 5)]
 	
 	for die in get_tree().get_nodes_in_group("Dice"):
 		die.value = new_val
@@ -19,17 +13,11 @@ func _on_yahtzee_pressed():
 
 func _on_full_house_pressed():
 	var ref_die = get_tree().get_first_node_in_group("Dice")
-	var possible_values = []
-	
-	for child in ref_die.get_children():
-		if child.is_in_group("Side"):
-			possible_values.append(int(String(child.name)))
-	
-	var new_val = possible_values[randi_range(0, 5)]
-	var second_new_val = possible_values[randi_range(0, 5)]
+	var new_val = ref_die.possible_values[randi_range(0, 5)]
+	var second_new_val = ref_die.possible_values[randi_range(0, 5)]
 	
 	while(new_val == second_new_val):
-		second_new_val = possible_values[randi_range(0, 5)]
+		second_new_val = ref_die.possible_values[randi_range(0, 5)]
 	
 	var count = 0
 	

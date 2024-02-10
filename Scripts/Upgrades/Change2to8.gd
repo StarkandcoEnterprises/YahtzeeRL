@@ -26,7 +26,7 @@ func change_dice():
 			die.possible_values.insert(die.possible_values.find(1), 7)
 			die.possible_values.remove_at(die.possible_values.find(1))
 			die.get_node("DiceModel").queue_free()
-			while is_instance_valid(die.get_node("DiceModel")):
+			while die.has_node("DiceModel"):
 				await get_tree().process_frame
 			change_3d_model(die)
 	return 0
