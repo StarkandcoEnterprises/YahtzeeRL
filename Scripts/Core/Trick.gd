@@ -14,7 +14,7 @@ func _ready():
 
 func _process(_delta):
 	%TrickTotal.text = str(total)
-	%Label.text = string_name
+	%Label.text = string_name if multiplier == 1 else string_name + " (x" + str(multiplier) + ")"
 
 func calculate():
 	if accepted: return

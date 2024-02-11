@@ -72,7 +72,7 @@ shape = SubResource("BoxShape3D_ro2w3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 0)
 shape = SubResource("BoxShape3D_ro2w3")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D" groups=["GroundShape"]]
 shape = SubResource("BoxShape3D_xkqmj")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="SubViewport/Node3D/StaticBody3D"]
